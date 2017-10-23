@@ -93,8 +93,8 @@ namespace WebForums.Pages
 
                 try
                 {
-                    DateTime ngaysinh = reader.GetDateTime(4);
-                    Session["ngaysinh"] = ngaysinh;
+                    DateTime ngaysinh = reader.GetDateTime(4);;
+                    Session["ngaysinh"] = ngaysinh.ToLongDateString();
                 }
                 catch { }
 
