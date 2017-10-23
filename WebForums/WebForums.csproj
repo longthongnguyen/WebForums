@@ -85,7 +85,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\Admin\MyProfile\MyProfile.aspx" />
     <Content Include="Pages\Home\Home.aspx" />
-    <Content Include="Image\default-avatar.jpg" />
+    <Content Include="Images\default-avatar.jpg" />
     <Content Include="Pages\Login\Login.aspx" />
     <Content Include="Pages\Users\MyProfile\MyProfile.aspx" />
     <Content Include="styleBogachchan.css" />
