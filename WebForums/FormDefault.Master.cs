@@ -17,7 +17,6 @@ namespace WebForums
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Thay doi
             Session.Timeout = 30; //Mỗi lần load trang thì gia hạn thời gian cho trạng thái đã đăng nhập
             try
             {
