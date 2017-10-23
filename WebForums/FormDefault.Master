@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FormDefault.master.cs" Inherits="WebForums.FormDefault" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .p1 {
+background-color: #93B8D2;
+}
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 143px;
+        }
+        .auto-style3 {
+            font-size: large;
+        }
+        .auto-style4 {
+            font-size: xx-large;
+        }
+        .auto-style6 {
+            font-size: large;
+            width: 237px;
+        }
+        .auto-style7 {
+            width: 1372px;
+            background-color: #FFFFFF;
+        }
+        .auto-style9 {
+            font-size: large;
+            width: 22px;
+        }
+        .auto-style10 {
+            font-size: large;
+            width: 347px;
+        }
+        .auto-style11 {
+            font-size: large;
+            text-align: right;
+            background-color: #FFFFFF;
+        }
+        .auto-style12 {
+            font-size: large;
+            background-color: #FFFFFF;
+        }
+        .auto-style13 {
+            font-size: large;
+            width: 1372px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="p1">
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2" colspan="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style9" rowspan="3" style="width: 100px">&nbsp;</td>
+                    <td class="auto-style7">
+                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:LinkButton ID="lkbtnTrangchu" runat="server" CssClass="auto-style4" OnClick="lkbtnTrangchu_Click">Trang chủ</asp:LinkButton>
+                        </strong>
+                    </td>
+                    <td class="auto-style11" colspan="2">
+                        <asp:Label ID="lblXinchao" runat="server" CssClass="auto-style3" Text="Xin chào, "></asp:Label>
+                        <asp:LinkButton ID="lkbtnTrangcanhan" runat="server" CssClass="auto-style3" OnClick="lkbtnTrangcanhan_Click">LinkButton</asp:LinkButton>
+                        <asp:LinkButton ID="lkbtnDangxuat" runat="server" CssClass="auto-style3" OnClick="lkbtnDangxuat_Click">(Đăng xuất)</asp:LinkButton>
+                        &nbsp;&nbsp;
+                        <br />
+                        <br />
+                        <asp:LinkButton ID="lkbtnTruycapquyen" runat="server" CssClass="auto-style3" OnClick="lkbtnTruycapquyen_Click">Truy cập trang dành cho thành viên</asp:LinkButton>
+                    &nbsp;&nbsp;
+                        <br />
+                        <br />
+                        <asp:Label ID="Label1" runat="server" Text="   "></asp:Label>
+                    </td>
+                    <td class="auto-style3" rowspan="3" style="width: 100px">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style12" colspan="3">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <p>
+                                &nbsp;</p>
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style10">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3" colspan="5">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
