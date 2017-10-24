@@ -18,6 +18,12 @@ namespace WebForums.Pages.EditProfile
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["id"].ToString() == "True")
+            {
+                Response.Redirect("~/Pages/Home/Home.aspx");
+            }
+
             lblUsername.Text = Session["id"].ToString();
             //Thêm title cho web
             try
@@ -104,12 +110,12 @@ namespace WebForums.Pages.EditProfile
                 int nam = Convert.ToInt32(txtNam.Text);
                 DateTime dt = new DateTime(nam, thang, ngay);
                 lenh = "update " + tenbang + " set NGAY_SINH'" + dt + "' where USERNAME = '" + Session["id"].ToString() + "'";
-                Session["noilamviec"] = txtNoilamviec.Text;
+                Session["ngaysinh"] = dt;
                 SqlCommand cmd7 = new SqlCommand(lenh, conn);
                 cmd7.ExecuteNonQuery();
             }
 
-
+            
 
             conn.Close();
 
