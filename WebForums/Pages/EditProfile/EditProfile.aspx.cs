@@ -57,21 +57,14 @@ namespace WebForums.Pages.EditProfile
                 cmd.ExecuteNonQuery();
             }
 
-            //if (txtNgaysinh.Text != "")
-            //{
-            //    lenh = "update " + tenbang + " set NGAY_SINH = '" + "@ngaysinh" + "' where USERNAME = '" + Session["id"].ToString() + "'";
-            //    Session["ngaysinh"] = txtNgaysinh.Text;
-            //    string dt = txtNgaysinh.Text;
-            //    DateTime.ParseExact(dt, "dd/mm/yyyy",CultureInfo.InvariantCulture);
-            //    SqlCommand cmd1 = new SqlCommand(lenh, conn);
-            //    cmd1.Parameters.AddWithValue("@ngaysinh", dt);
-            //    cmd1.ExecuteNonQuery();
-            //}
-            
-            lenh = "update " + tenbang + " set GIOI_TINH = N'" + drdGioitinh.SelectedItem.ToString() + "' where USERNAME = '" + Session["id"].ToString() + "'";
-            Session["gioitinh"] = drdGioitinh.SelectedItem.ToString();
-            SqlCommand cmd6 = new SqlCommand(lenh, conn);
-            cmd6.ExecuteNonQuery();
+
+            if (drdGioitinh.SelectedItem.ToString() != "")
+            {
+                lenh = "update " + tenbang + " set GIOI_TINH = N'" + drdGioitinh.SelectedItem.ToString() + "' where USERNAME = '" + Session["id"].ToString() + "'";
+                Session["gioitinh"] = drdGioitinh.SelectedItem.ToString();
+                SqlCommand cmd6 = new SqlCommand(lenh, conn);
+                cmd6.ExecuteNonQuery();
+            }
 
             if (txtNghenghiep.Text != "")
             {
@@ -102,15 +95,22 @@ namespace WebForums.Pages.EditProfile
                 cmd5.ExecuteNonQuery();
             }
 
-            //string dt = txtNgaysinh.Text;
 
-            //lenh = "update " + tenbang + " set " + "TEN = N'" + txtHovaten.Text +/* "', NGAY_SINH = '"
-            //    + Convert.ToDateTime(txtNgaysinh.Text).ToLongDateString() + */"', GIOI_TINH = N'" + drdGioitinh.SelectedItem.ToString() + "', NGHE_NGHIEP = N'"
-            //    + txtNghenghiep.Text + "', SO_DIEN_THOAI = N'" + txtSodienthoai.Text + "', DIA_CHI = N'"
-            //    + txtDiachi.Text + "', NOI_LAM_VIEC =N'" + txtNoilamviec.Text + "' where USERNAME = '"
-            //    + Session["id"].ToString() + "'";
-            //SqlCommand cmd = new SqlCommand(lenh, conn);
-            //cmd.ExecuteNonQuery();
+            //Cập nhật ngày tháng
+            if (drdNgay.ToString() != "" && drdThang.ToString() != "" && txtNam.Text != "")
+            {
+                int ngay = Convert.ToInt32(drdNgay.SelectedItem.Value.ToString());
+                int thang = Convert.ToInt32(drdThang.SelectedItem.Value.ToString());
+                int nam = Convert.ToInt32(txtNam.Text);
+                DateTime dt = new DateTime(nam, thang, ngay);
+                lenh = "update " + tenbang + " set NGAY_SINH'" + dt + "' where USERNAME = '" + Session["id"].ToString() + "'";
+                Session["noilamviec"] = txtNoilamviec.Text;
+                SqlCommand cmd7 = new SqlCommand(lenh, conn);
+                cmd7.ExecuteNonQuery();
+            }
+
+
+
             conn.Close();
 
             

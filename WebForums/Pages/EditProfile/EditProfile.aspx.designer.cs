@@ -31,13 +31,31 @@ namespace WebForums.Pages.EditProfile {
         protected global::System.Web.UI.WebControls.TextBox txtHovaten;
         
         /// <summary>
-        /// txtNgaysinh control.
+        /// drdNgay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNgaysinh;
+        protected global::System.Web.UI.WebControls.DropDownList drdNgay;
+        
+        /// <summary>
+        /// drdThang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drdThang;
+        
+        /// <summary>
+        /// txtNam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNam;
         
         /// <summary>
         /// drdGioitinh control.
