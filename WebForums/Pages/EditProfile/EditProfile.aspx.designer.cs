@@ -7,99 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebForums.Pages.Users.MyProfile {
+namespace WebForums.Pages.EditProfile {
     
     
-    public partial class MyProfile {
+    public partial class EditProfile {
         
         /// <summary>
-        /// lblId control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblId;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
-        /// lkbtnChinhsuathongtin control.
+        /// txtHovaten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbtnChinhsuathongtin;
+        protected global::System.Web.UI.WebControls.TextBox txtHovaten;
         
         /// <summary>
-        /// lblTen control.
+        /// txtNgaysinh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTen;
+        protected global::System.Web.UI.WebControls.TextBox txtNgaysinh;
         
         /// <summary>
-        /// lblNgaysinh control.
+        /// drdGioitinh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNgaysinh;
+        protected global::System.Web.UI.WebControls.DropDownList drdGioitinh;
         
         /// <summary>
-        /// lblGioitinh control.
+        /// txtNghenghiep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGioitinh;
+        protected global::System.Web.UI.WebControls.TextBox txtNghenghiep;
         
         /// <summary>
-        /// lblNghenghiep control.
+        /// txtSodienthoai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNghenghiep;
+        protected global::System.Web.UI.WebControls.TextBox txtSodienthoai;
         
         /// <summary>
-        /// lblEmail control.
+        /// txtDiachi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtDiachi;
         
         /// <summary>
-        /// lblSodienthoai control.
+        /// txtNoilamviec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSodienthoai;
+        protected global::System.Web.UI.WebControls.TextBox txtNoilamviec;
         
         /// <summary>
-        /// lblDiachi control.
+        /// btnLuuthaydoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDiachi;
-        
-        /// <summary>
-        /// lblNoilamviec control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoilamviec;
+        protected global::System.Web.UI.WebControls.Button btnLuuthaydoi;
     }
 }

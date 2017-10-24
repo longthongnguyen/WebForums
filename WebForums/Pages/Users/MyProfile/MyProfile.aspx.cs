@@ -90,5 +90,10 @@ namespace WebForums.Pages.Users.MyProfile
             //Thêm title cho web
             Page.Title = Session["ten"].ToString() + " | Trang cá nhân";
         }
+
+        protected void lkbtnChinhsuathongtin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/EditProfile/EditProfile.aspx");
+        }
     }
 }

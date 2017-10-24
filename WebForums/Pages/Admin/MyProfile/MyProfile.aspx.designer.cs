@@ -22,6 +22,15 @@ namespace WebForums {
         protected global::System.Web.UI.WebControls.Label lblId;
         
         /// <summary>
+        /// lkbtnChinhsuathongtin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbtnChinhsuathongtin;
+        
+        /// <summary>
         /// lblTen control.
         /// </summary>
         /// <remarks>

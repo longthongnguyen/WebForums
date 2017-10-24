@@ -129,5 +129,10 @@ namespace WebForums
             }
             catch { }
         }
+
+        protected void lkbtnChinhsuathongtin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/EditProfile/EditProfile.aspx");
+        }
     }
 }
