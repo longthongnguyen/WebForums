@@ -29,6 +29,12 @@ namespace WebForums.Pages.EditProfile
             lblTen.Text = Session["viewten"].ToString();
             try
             {
+                lblTrangthaicapnhat.Text = Session["trangthaicapnhat"].ToString();
+            }
+            catch { }
+
+            try
+            {
                 lblTen.Text = Session["viewten"].ToString();
             }
             catch { lblTen.Text = "Chưa có thông tin"; }
@@ -94,6 +100,11 @@ namespace WebForums.Pages.EditProfile
         {
             conn.Open();
             string lenh = null;
+            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedItem.ToString() == "")
+            {
+                Session["trangthaicapnhat"] = "Thông tin không thay đổi";
+                Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
+            }
             if (txtHovaten.Text != "")
             {
                 lenh = "update USERS set TEN = N'" + txtHovaten.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
@@ -147,11 +158,12 @@ namespace WebForums.Pages.EditProfile
                 SqlCommand cmd8 = new SqlCommand(lenh, conn);
                 cmd8.ExecuteNonQuery();
             }
-
-            lblLoi.Text = "";
+            
             //Cập nhật ngày tháng
             if (txtNam.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "")
             {
+
+                Session["trangthaicapnhat"] = "Cập nhật thành công";
                 Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
             }
             else
@@ -166,33 +178,37 @@ namespace WebForums.Pages.EditProfile
                         {
 
                             lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
+                            lblTrangthaicapnhat.Text = "";
                             btnLuuthaydoi.Focus();
                         }
-                        string kt = txtNam.Text;
-                        Convert.ToInt32(kt);
-                        string ngay = drdNgay.SelectedItem.Value.ToString();
-                        string thang = drdThang.SelectedItem.Value.ToString();
-                        string nam = txtNam.Text;
-                        string dt = ngay + "/" + thang + "/" + nam;
-                        lenh = "update USERS set NGAY_SINH = '" + dt + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
-                        if (flag == 1)
-                            lenh = null;
-                        Session["ngaysinh"] = dt;
-                        SqlCommand cmd7 = new SqlCommand(lenh, conn);
-                        cmd7.ExecuteNonQuery();
-                        Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
+                        else
+                        {
+                            string kt = txtNam.Text;
+                            Convert.ToInt32(kt);
+                            string ngay = drdNgay.SelectedItem.Value.ToString();
+                            string thang = drdThang.SelectedItem.Value.ToString();
+                            string nam = txtNam.Text;
+                            string dt = ngay + "/" + thang + "/" + nam;
+                            lenh = "update USERS set NGAY_SINH = '" + dt + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                            if (flag == 1)
+                                lenh = null;
+                            Session["ngaysinh"] = dt;
+                            SqlCommand cmd7 = new SqlCommand(lenh, conn);
+                            cmd7.ExecuteNonQuery();
+                            Session["trangthaicapnhat"] = "Cập nhật thành công";
+                            Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
+                        }
                     }
                 }
                 catch
                 {
 
                     lblLoi.Text = "Vui lòng nhập đúng năm";
+                    lblTrangthaicapnhat.Text = "";
                     btnLuuthaydoi.Focus();
                 }
                 btnLuuthaydoi.Focus();
             }
-            if (lblLoi.Text == "")
-                lblLoi.Text = "Cập nhật thông tin thành công";
             conn.Close();
         }
 

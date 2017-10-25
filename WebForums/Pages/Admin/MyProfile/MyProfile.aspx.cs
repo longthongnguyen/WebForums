@@ -23,6 +23,7 @@ namespace WebForums
                 return;
             }
 
+            Session["trangthaicapnhat"] = "";
             if (Session["quyentam"] == "thanhvien")
             {
                 Response.Redirect("~/Pages/Users/MyProfile/MyProfile.aspx");

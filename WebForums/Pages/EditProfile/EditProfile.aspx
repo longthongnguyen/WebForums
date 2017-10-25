@@ -44,6 +44,9 @@
             height: 31px;
             font-size: x-large;
         }
+        .auto-style30 {
+            color: #0000FF;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -62,8 +65,11 @@
                 <td class="auto-style4"><strong>Cập nhật thông tin mới</strong></td>
             </tr>
         <tr class="auto-style25">
-            <td colspan="2">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td colspan="3" class="auto-style27">
+                <strong>
+                <asp:Label ID="lblTrangthaicapnhat" runat="server" CssClass="auto-style30"></asp:Label>
+                </strong>
+            </td>
         </tr>
         <tr>
                 <td class="auto-style17"><span class="auto-style25">&nbsp;&nbsp;&nbsp;&nbsp; Họ và tên</td>

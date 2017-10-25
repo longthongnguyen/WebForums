@@ -23,6 +23,7 @@ namespace WebForums.Pages.Users.MyProfile
                 Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
             }
 
+            Session["trangthaicapnhat"] = "";
             //Nếu chưa đăng nhập mà truy cập thì đưa về trang Login để xử lí lại
             if (Session["id"].ToString() == "True")
             {

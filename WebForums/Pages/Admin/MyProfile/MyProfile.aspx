@@ -179,7 +179,7 @@
                                                                 &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
                                                             </EditItemTemplate>
                                                             <ItemTemplate>
-                                                                <asp:LinkButton ID="LinkButton1"  runat="server" CausesValidation="False" CommandName="Edit" Text="Xem chi tiết" CommandArgument='<%#Eval("Tên đăng nhập") %>'></asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton1"  runat="server" CausesValidation="False" CommandName="Edit" Text="Chi tiết" CommandArgument='<%#Eval("Tên đăng nhập") %>'></asp:LinkButton>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                         <asp:CommandField DeleteText="Xóa" EditText="Xóa" ShowDeleteButton="True" />
@@ -235,7 +235,7 @@
                                                                             &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
                                                                         </EditItemTemplate>
                                                                         <ItemTemplate>
-                                                                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Xem chi tiết" CommandArgument='<%#Eval("Tên đăng nhập") %>'></asp:LinkButton>
+                                                                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Chi tiết" CommandArgument='<%#Eval("Tên đăng nhập") %>'></asp:LinkButton>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
                                                                 </Columns>

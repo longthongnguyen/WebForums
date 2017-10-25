@@ -11,6 +11,7 @@ namespace WebForums.Pages.Admin.ManageUsersProfile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["trangthaicapnhat"] = "";
             if (Session["id"].ToString() == "True" || Session["quyen"].ToString() != "quantri")
             {
                 Response.Redirect("~/Home/Home.aspx");

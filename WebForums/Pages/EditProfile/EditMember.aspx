@@ -22,14 +22,6 @@
             height: 31px;
             text-align: left;
         }
-        .auto-style20 {
-            width: 297px;
-            font-size: xx-large;
-        }
-        .auto-style21 {
-            width: 222px;
-            font-size: xx-large;
-        }
         .auto-style22 {
             font-size: xx-large;
             text-align: center;
@@ -50,6 +42,10 @@
         .auto-style27 {
             text-align: center;
         }
+        .auto-style28 {
+            font-size: x-large;
+            color: #0000CC;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -67,9 +63,9 @@
                 <td class="auto-style25"><strong>Cập nhật thông tin mới</strong></td>
             </tr>
             <tr>
-                <td class="auto-style21">&nbsp;</td>
-                <td class="auto-style20">&nbsp;</td>
-                <td class="auto-style4">&nbsp;</td>
+                <td class="auto-style22" colspan="3"><strong>
+                    <asp:Label ID="lblTrangthaicapnhat" runat="server" CssClass="auto-style28"></asp:Label>
+                    </strong></td>
             </tr>
             <tr>
                 <td class="auto-style17">&nbsp;&nbsp;&nbsp;&nbsp; Họ và tên</td>
