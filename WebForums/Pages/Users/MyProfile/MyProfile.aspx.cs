@@ -37,6 +37,7 @@ namespace WebForums.Pages.Users.MyProfile
             if (Session["quyen"] == "quantri")
             {
                 lenh = "select * from ADMIN where USERNAME = '" + Session["id"] + "'";
+                lblQuyen.Text = "(Quản trị viên)";
             }
             SqlCommand cmd = new SqlCommand(lenh, conn);
             DbDataReader reader = cmd.ExecuteReader();
@@ -89,7 +90,7 @@ namespace WebForums.Pages.Users.MyProfile
 
 
             //Thêm title cho web
-            Page.Title = Session["ten"].ToString() + " | Trang cá nhân";
+            Page.Title = "Trang cá nhân | " + Session["id"].ToString();
         }
 
         protected void lkbtnChinhsuathongtin_Click(object sender, EventArgs e)

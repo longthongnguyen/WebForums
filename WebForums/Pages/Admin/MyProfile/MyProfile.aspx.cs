@@ -107,7 +107,7 @@ namespace WebForums
                 conn.Close();
 
                 //Thêm title cho web
-                Page.Title = ten + " | Trang cá nhân";
+                Page.Title = "Trang cá nhân | " + username;
 
                 ////Ảnh đại diện mặc đinh
                 //lenh = "select ANH_DAI_DIEN as ' ' from ADMIN where '" + Session["id"];

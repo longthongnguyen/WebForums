@@ -13,6 +13,15 @@ namespace WebForums.Pages.Admin.ManageUsersProfile {
     public partial class View {
         
         /// <summary>
+        /// imgAnhdaidien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgAnhdaidien;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>

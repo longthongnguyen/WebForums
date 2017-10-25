@@ -13,9 +13,8 @@
             width: 251px;
         }
         .auto-style17 {
-            width: 251px;
             color: #0000FF;
-            text-align: right;
+            text-align: left;
         }
         .auto-style18 {
             color: #FF0000;
@@ -49,16 +48,22 @@
                 <td class="auto-style15" colspan="2"><strong>Trang cá nhân</strong></td>
             </tr>
             <tr>
-                <td colspan="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Image ID="imgAnhdaidien" runat="server" ImageUrl="~/Images/default-avatar.jpg" Width="25%" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>
                     <asp:Label ID="lblUsername" runat="server" CssClass="auto-style4" Text="Label"></asp:Label>
 &nbsp;<asp:Label ID="lblQuyen" runat="server" CssClass="auto-style4" Text="Label"></asp:Label>
                     </strong></td>
             </tr>
             <tr>
-                <td class="auto-style17">
+                <td class="auto-style17" colspan="2">
+                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:LinkButton ID="lkbtnChinhsuathongtin" runat="server" OnClick="LinkButton1_Click">Chỉnh sửa thông tin</asp:LinkButton>
+                    </strong>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style16">&nbsp;</td>

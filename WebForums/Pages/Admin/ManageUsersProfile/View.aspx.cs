@@ -17,7 +17,7 @@ namespace WebForums.Pages.Admin.ManageUsersProfile
                 Response.Redirect("~/Home/Home.aspx");
             }
             //Thêm title cho web
-            Page.Title = Session["viewten"].ToString() + " | Trang cá nhân";
+            Page.Title = "Trang cá nhân | " + Session["viewusername"].ToString();
 
             lblUsername.Text = Session["viewusername"].ToString();
             lblTen.Text = Session["viewten"].ToString();

@@ -23,7 +23,7 @@ namespace WebForums.Pages.EditProfile
                 Response.Redirect("~/Home/Home.aspx");
             }
             //Thêm title cho web
-            Page.Title = Session["viewten"].ToString() + " | Chỉnh sửa thông tin";
+            Page.Title = "Sửa thông tin thành viên | " + Session["viewusername"].ToString();
 
             lblUsername.Text = Session["viewusername"].ToString();
             lblTen.Text = Session["viewten"].ToString();

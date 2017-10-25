@@ -40,7 +40,8 @@
         <tr>
             <td class="auto-style4"> <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblId" runat="server" CssClass="auto-style2" Text="Username"></asp:Label>
-                        <span class="auto-style2">(Thành viên)<br />
+                        <asp:Label ID="lblQuyen" runat="server" Text="(Thành viên)"></asp:Label>
+                <span class="auto-style2"><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
                 <asp:LinkButton ID="lkbtnChinhsuathongtin" runat="server" CssClass="auto-style71" OnClick="lkbtnChinhsuathongtin_Click">Chỉnh sửa thông tin</asp:LinkButton>
                 </span></strong></td>

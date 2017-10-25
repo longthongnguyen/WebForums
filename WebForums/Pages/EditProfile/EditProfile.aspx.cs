@@ -89,7 +89,7 @@ namespace WebForums.Pages.EditProfile
             //Thêm title cho web
             try
             {
-                Page.Title = Session["ten"].ToString() + " | Chỉnh sửa thông tin";
+                Page.Title = "Sửa thông tin cá nhân | " + Session["id"].ToString();
             }
             catch { }
 

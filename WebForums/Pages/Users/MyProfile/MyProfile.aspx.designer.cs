@@ -31,6 +31,15 @@ namespace WebForums.Pages.Users.MyProfile {
         protected global::System.Web.UI.WebControls.Label lblId;
         
         /// <summary>
+        /// lblQuyen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuyen;
+        
+        /// <summary>
         /// lkbtnChinhsuathongtin control.
         /// </summary>
         /// <remarks>
