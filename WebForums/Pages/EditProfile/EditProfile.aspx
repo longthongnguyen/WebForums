@@ -10,10 +10,6 @@
         .auto-style16 {
             width: 368px;
         }
-        .auto-style22 {
-            font-size: xx-large;
-            text-align: center;
-        }
         .auto-style17 {
             width: 222px;
             height: 31px;
@@ -47,6 +43,13 @@
         .auto-style30 {
             color: #0000FF;
         }
+        .auto-style32 {
+            height: 31px;
+        }
+        .auto-style33 {
+            width: 585px;
+            text-align: center;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -60,10 +63,6 @@
         </tr>
         </table>
     <table class="auto-style1">
-        <tr>
-                <td class="auto-style22" colspan="2"><strong>Thông tin thành viên</strong></td>
-                <td class="auto-style4"><strong>Cập nhật thông tin mới</strong></td>
-            </tr>
         <tr class="auto-style25">
             <td colspan="3" class="auto-style27">
                 <strong>
@@ -71,6 +70,29 @@
                 </strong>
             </td>
         </tr>
+        <tr>
+                <td class="auto-style32" colspan="3">&nbsp;&nbsp;&nbsp; <span class="auto-style25">&nbsp;&nbsp; Ảnh đại diện</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Image ID="imgAnhdaidien" runat="server" ImageUrl="~/Images/default-avatar.jpg" Width="25%" />
+                    <asp:FileUpload ID="uploadAndaidien" runat="server" ToolTip="Thay đổi ảnh đại diện" />
+                    <table class="auto-style1">
+                        <tr class="auto-style4">
+                            <td class="auto-style33">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="auto-style4">
+                            <td class="auto-style33"><strong>Thông tin thành viên</strong></td>
+                            <td><strong>Cập nhật thông tin mới</strong></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        <tr>
+                <td class="auto-style17">&nbsp;</td>
+                <td class="auto-style18">&nbsp;</td>
+                <td class="auto-style19">
+                    &nbsp;</td>
+            </tr>
         <tr>
                 <td class="auto-style17"><span class="auto-style25">&nbsp;&nbsp;&nbsp;&nbsp; Họ và tên</td>
                 <td class="auto-style18"></span><strong>

@@ -33,10 +33,15 @@
             <td class="auto-style14"><strong>Trang cá nhân</strong></td>
         </tr>
         <tr>
-            <td class="auto-style4"> <strong>&nbsp;
+            <td class="auto-style4"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Image ID="imgAnhdaidien" runat="server" ImageUrl="~/Images/default-avatar.jpg" Width="25%" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4"> <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblId" runat="server" CssClass="auto-style2" Text="Username"></asp:Label>
                         <span class="auto-style2">(Thành viên)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
                 <asp:LinkButton ID="lkbtnChinhsuathongtin" runat="server" CssClass="auto-style71" OnClick="lkbtnChinhsuathongtin_Click">Chỉnh sửa thông tin</asp:LinkButton>
                 </span></strong></td>
         </tr>

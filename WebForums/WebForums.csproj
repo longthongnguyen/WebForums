@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Images\2.jpg" />
     <Content Include="Pages\Admin\ManageUsersProfile\View.aspx" />
     <Content Include="Pages\Admin\MyProfile\MyProfile.aspx" />
     <Content Include="Pages\EditProfile\EditMember.aspx" />
