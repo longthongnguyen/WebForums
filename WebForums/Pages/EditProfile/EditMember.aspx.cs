@@ -18,6 +18,13 @@ namespace WebForums.Pages.EditProfile
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id"].ToString() == "True" || Session["quyen"].ToString() != "quantri")
+            {
+                Response.Redirect("~/Home/Home.aspx");
+            }
+            //Thêm title cho web
+            Page.Title = Session["viewten"].ToString() + " | Chỉnh sửa thông tin";
+
             lblUsername.Text = Session["viewusername"].ToString();
             lblTen.Text = Session["viewten"].ToString();
             try
@@ -100,7 +107,7 @@ namespace WebForums.Pages.EditProfile
             if (drdGioitinh.SelectedItem.ToString() != "")
             {
                 lenh = "update USERS set GIOI_TINH = N'" + drdGioitinh.SelectedItem.ToString() + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
-                Session["gioitinh"] = drdGioitinh.SelectedItem.ToString();
+                Session["viewgioitinh"] = drdGioitinh.SelectedItem.ToString();
                 SqlCommand cmd6 = new SqlCommand(lenh, conn);
                 cmd6.ExecuteNonQuery();
             }
@@ -108,40 +115,44 @@ namespace WebForums.Pages.EditProfile
             if (txtNghenghiep.Text != "")
             {
                 lenh = "update USERS set NGHE_NGHIEP = N'" + txtNghenghiep.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
-                Session["nghenghiep"] = txtNghenghiep.Text;
+                Session["viewnghenghiep"] = txtNghenghiep.Text;
                 SqlCommand cmd2 = new SqlCommand(lenh, conn);
                 cmd2.ExecuteNonQuery();
             }
             if (txtSodienthoai.Text != "")
             {
                 lenh = "update USERS set SO_DIEN_THOAI = '" + txtSodienthoai.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
-                Session["sodienthoai"] = txtSodienthoai.Text;
+                Session["viewsodienthoai"] = txtSodienthoai.Text;
                 SqlCommand cmd3 = new SqlCommand(lenh, conn);
                 cmd3.ExecuteNonQuery();
             }
             if (txtDiachi.Text != "")
             {
                 lenh = "update USERS set DIA_CHI = N'" + txtDiachi.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
-                Session["diachi"] = txtDiachi.Text;
+                Session["viewdiachi"] = txtDiachi.Text;
                 SqlCommand cmd4 = new SqlCommand(lenh, conn);
                 cmd4.ExecuteNonQuery();
             }
             if (txtNoilamviec.Text != "")
             {
                 lenh = "update USERS set NOI_LAM_VIEC = N'" + txtNoilamviec.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
-                Session["noilamviec"] = txtNoilamviec.Text;
+                Session["viewnoilamviec"] = txtNoilamviec.Text;
                 SqlCommand cmd5 = new SqlCommand(lenh, conn);
                 cmd5.ExecuteNonQuery();
             }
-
+            if (txtEmail.Text != "")
+            {
+                lenh = "update USERS set EMAIL = N'" + txtEmail.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                Session["viewemail"] = txtEmail.Text;
+                SqlCommand cmd8 = new SqlCommand(lenh, conn);
+                cmd8.ExecuteNonQuery();
+            }
 
             lblLoi.Text = "";
             //Cập nhật ngày tháng
             if (txtNam.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "")
             {
-                lblLoi.Text = "Hoàn tất, mọi thông tin không thay đổi";
-                btnLuuthaydoi.Focus();
-                //Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
+                Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
             }
             else
             {
@@ -153,8 +164,9 @@ namespace WebForums.Pages.EditProfile
                         int flag = 0;
                         if (drdNgay.SelectedItem.ToString() == "" || drdThang.SelectedItem.ToString() == "" || txtNam.Text == "")
                         {
-                            
-                            flag = 1;
+
+                            lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
+                            btnLuuthaydoi.Focus();
                         }
                         string kt = txtNam.Text;
                         Convert.ToInt32(kt);
@@ -168,13 +180,14 @@ namespace WebForums.Pages.EditProfile
                         Session["ngaysinh"] = dt;
                         SqlCommand cmd7 = new SqlCommand(lenh, conn);
                         cmd7.ExecuteNonQuery();
-                        //Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
+                        Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
                     }
                 }
                 catch
                 {
 
-                    lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
+                    lblLoi.Text = "Vui lòng nhập đúng năm";
+                    btnLuuthaydoi.Focus();
                 }
                 btnLuuthaydoi.Focus();
             }

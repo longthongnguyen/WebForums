@@ -28,7 +28,7 @@ namespace WebForums.Pages
             //Nếu tài khoản đã đăng nhập rồi mà truy cập trang login thì đưa đến trang chủ
             if (Session["id"].ToString() != "True")
             {
-                Response.Redirect("~/Pages/Home/Home.aspx");
+                Response.Redirect("~/Home/Home.aspx");
             }
             txtTaikhoan.Focus();
 
@@ -122,7 +122,7 @@ namespace WebForums.Pages
                 string email = reader.GetString(10);
                 Session["email"] = email;
 
-                Response.Redirect("~/Pages/Home/Home.aspx");
+                Response.Redirect("~/Home/Home.aspx");
             }
             else
             {

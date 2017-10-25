@@ -56,7 +56,7 @@
     <table class="auto-style1">
         <tbody class="auto-style14">
             <tr>
-                <td colspan="3"><strong><span class="auto-style24">Sửa thông tin thành viên
+                <td colspan="3"><strong><span class="auto-style24">&nbsp;&nbsp;&nbsp; Sửa thông tin thành viên
                     </span>
                     <asp:Label ID="lblUsername" runat="server" Text="Label" CssClass="auto-style24"></asp:Label>
                     </strong>
@@ -93,15 +93,15 @@
                 <td class="auto-style23">Ngày
                     <asp:DropDownList ID="drdNgay" runat="server" CssClass="auto-style3" Width="49px">
                         <asp:ListItem></asp:ListItem>
-                        <asp:ListItem>1</asp:ListItem>
-                        <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>3</asp:ListItem>
-                        <asp:ListItem>4</asp:ListItem>
-                        <asp:ListItem>5</asp:ListItem>
-                        <asp:ListItem>6</asp:ListItem>
-                        <asp:ListItem>7</asp:ListItem>
-                        <asp:ListItem>8</asp:ListItem>
-                        <asp:ListItem>9</asp:ListItem>
+                        <asp:ListItem Value="01">01</asp:ListItem>
+                        <asp:ListItem>02</asp:ListItem>
+                        <asp:ListItem>03</asp:ListItem>
+                        <asp:ListItem>04</asp:ListItem>
+                        <asp:ListItem>05</asp:ListItem>
+                        <asp:ListItem>06</asp:ListItem>
+                        <asp:ListItem>07</asp:ListItem>
+                        <asp:ListItem>08</asp:ListItem>
+                        <asp:ListItem>09</asp:ListItem>
                         <asp:ListItem>10</asp:ListItem>
                         <asp:ListItem>11</asp:ListItem>
                         <asp:ListItem>12</asp:ListItem>
@@ -128,18 +128,18 @@
 &nbsp; Tháng
                     <asp:DropDownList ID="drdThang" runat="server" CssClass="auto-style3">
                         <asp:ListItem></asp:ListItem>
-                        <asp:ListItem>Tháng 1</asp:ListItem>
-                        <asp:ListItem>Tháng 2</asp:ListItem>
-                        <asp:ListItem>Tháng 3</asp:ListItem>
-                        <asp:ListItem>Tháng 4</asp:ListItem>
-                        <asp:ListItem>Tháng 5</asp:ListItem>
-                        <asp:ListItem>Tháng 6</asp:ListItem>
-                        <asp:ListItem>Tháng 7</asp:ListItem>
-                        <asp:ListItem>Tháng 8</asp:ListItem>
-                        <asp:ListItem>Tháng 9</asp:ListItem>
-                        <asp:ListItem>Tháng 10</asp:ListItem>
-                        <asp:ListItem>Tháng 11</asp:ListItem>
-                        <asp:ListItem>Tháng 12</asp:ListItem>
+                        <asp:ListItem Value="01">Tháng 1</asp:ListItem>
+                        <asp:ListItem Value="02">Tháng 2</asp:ListItem>
+                        <asp:ListItem Value="03">Tháng 3</asp:ListItem>
+                        <asp:ListItem Value="04">Tháng 4</asp:ListItem>
+                        <asp:ListItem Value="05">Tháng 5</asp:ListItem>
+                        <asp:ListItem Value="06">Tháng 6</asp:ListItem>
+                        <asp:ListItem Value="07">Tháng 7</asp:ListItem>
+                        <asp:ListItem Value="08">Tháng 8</asp:ListItem>
+                        <asp:ListItem Value="09">Tháng 9</asp:ListItem>
+                        <asp:ListItem Value="10">Tháng 10</asp:ListItem>
+                        <asp:ListItem Value="11">Tháng 11</asp:ListItem>
+                        <asp:ListItem Value="12">Tháng 12</asp:ListItem>
                     </asp:DropDownList>
 &nbsp; Năm
                     <asp:TextBox ID="txtNam" runat="server" CssClass="auto-style3" MaxLength="4" Width="62px"></asp:TextBox>

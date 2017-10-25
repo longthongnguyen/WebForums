@@ -22,6 +22,15 @@ namespace WebForums.Pages.EditProfile {
         protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
+        /// lblTen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTen;
+        
+        /// <summary>
         /// txtHovaten control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace WebForums.Pages.EditProfile {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHovaten;
+        
+        /// <summary>
+        /// lblNgaysinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNgaysinh;
         
         /// <summary>
         /// drdNgay control.
@@ -58,6 +76,15 @@ namespace WebForums.Pages.EditProfile {
         protected global::System.Web.UI.WebControls.TextBox txtNam;
         
         /// <summary>
+        /// lblGioitinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGioitinh;
+        
+        /// <summary>
         /// drdGioitinh control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace WebForums.Pages.EditProfile {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drdGioitinh;
+        
+        /// <summary>
+        /// lblNghenghiep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNghenghiep;
         
         /// <summary>
         /// txtNghenghiep control.
@@ -76,6 +112,33 @@ namespace WebForums.Pages.EditProfile {
         protected global::System.Web.UI.WebControls.TextBox txtNghenghiep;
         
         /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+        
+        /// <summary>
+        /// txtEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// lblSodienthoai control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSodienthoai;
+        
+        /// <summary>
         /// txtSodienthoai control.
         /// </summary>
         /// <remarks>
@@ -85,6 +148,15 @@ namespace WebForums.Pages.EditProfile {
         protected global::System.Web.UI.WebControls.TextBox txtSodienthoai;
         
         /// <summary>
+        /// lblDiachi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDiachi;
+        
+        /// <summary>
         /// txtDiachi control.
         /// </summary>
         /// <remarks>
@@ -92,6 +164,15 @@ namespace WebForums.Pages.EditProfile {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiachi;
+        
+        /// <summary>
+        /// lblNoilamviec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoilamviec;
         
         /// <summary>
         /// txtNoilamviec control.
@@ -119,5 +200,14 @@ namespace WebForums.Pages.EditProfile {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLuuthaydoi;
+        
+        /// <summary>
+        /// btnHuybo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHuybo;
     }
 }

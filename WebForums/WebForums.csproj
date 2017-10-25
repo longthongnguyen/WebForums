@@ -87,7 +87,7 @@
     <Content Include="Pages\Admin\MyProfile\MyProfile.aspx" />
     <Content Include="Pages\EditProfile\EditMember.aspx" />
     <Content Include="Pages\EditProfile\EditProfile.aspx" />
-    <Content Include="Pages\Home\Home.aspx" />
+    <Content Include="Home\Home.aspx" />
     <Content Include="Images\default-avatar.jpg" />
     <Content Include="Pages\Login\Login.aspx" />
     <Content Include="Pages\Users\MyProfile\MyProfile.aspx" />
@@ -135,11 +135,11 @@
     <Compile Include="Pages\EditProfile\EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Home\Home.aspx.cs">
+    <Compile Include="Home\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Home\Home.aspx.designer.cs">
+    <Compile Include="Home\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login\Login.aspx.cs">

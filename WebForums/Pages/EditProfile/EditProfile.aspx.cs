@@ -21,10 +21,65 @@ namespace WebForums.Pages.EditProfile
 
             if (Session["id"].ToString() == "True")
             {
-                Response.Redirect("~/Pages/Home/Home.aspx");
+                Response.Redirect("~/Home/Home.aspx");
             }
 
             lblUsername.Text = Session["id"].ToString();
+            lblTen.Text = Session["ten"].ToString();
+
+            try
+            {
+                lblDiachi.Text = Session["diachi"].ToString();
+            }
+            catch { lblDiachi.Text = "Chưa có thông tin"; }
+
+
+
+
+            try
+            {
+                lblNgaysinh.Text = Session["ngaysinh"].ToString();
+            }
+            catch { lblNgaysinh.Text = "Chưa có thông tin"; }
+
+
+
+            try
+            {
+                lblSodienthoai.Text = Session["sodienthoai"].ToString();
+            }
+            catch { lblSodienthoai.Text = "Chưa có thông tin"; }
+
+
+
+            try
+            {
+                lblNghenghiep.Text = Session["nghenghiep"].ToString();
+            }
+            catch { lblNghenghiep.Text = "Chưa có thông tin"; }
+
+
+
+            try
+            {
+                lblNoilamviec.Text = Session["noilamviec"].ToString();
+            }
+            catch { lblNoilamviec.Text = "Chưa có thông tin"; }
+
+
+
+
+            try
+            {
+                lblEmail.Text = Session["email"].ToString();
+            }
+            catch { lblEmail.Text = "Chưa có thông tin"; }
+
+            try
+            {
+                lblGioitinh.Text = Session["gioitinh"].ToString();
+            }
+            catch { lblGioitinh.Text = "Chưa có thông tin"; }
             //Thêm title cho web
             try
             {
@@ -43,9 +98,15 @@ namespace WebForums.Pages.EditProfile
 
         protected void btnLuuthaydoi_Click(object sender, EventArgs e)
         {
+           
+            
+        }
+
+        protected void btnLuuthaydoi_Click1(object sender, EventArgs e)
+        {
             conn.Open();
             string tenbang, lenh = null;
-            if(Session["quyen"].ToString() == "quantri")
+            if (Session["quyen"].ToString() == "quantri")
             {
                 tenbang = "ADMIN";
             }
@@ -100,24 +161,31 @@ namespace WebForums.Pages.EditProfile
                 SqlCommand cmd5 = new SqlCommand(lenh, conn);
                 cmd5.ExecuteNonQuery();
             }
+            if (txtEmail.Text != "")
+            {
+                lenh = "update " + tenbang + " set EMAIL = N'" + txtEmail.Text + "' where USERNAME = '" + Session["id"].ToString() + "'";
+                Session["email"] = txtEmail.Text;
+                SqlCommand cmd8 = new SqlCommand(lenh, conn);
+                cmd8.ExecuteNonQuery();
+            }
 
 
             //Cập nhật ngày tháng
             if (txtNam.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "")
             {
-                Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
+                Response.Redirect("~/Pages/EditProfile/EditProfile.aspx");
             }
             else
             {
                 try
                 {
-                    
+
                     if (drdNgay.SelectedItem.ToString() != "" || drdThang.SelectedItem.ToString() != "" || txtNam.Text != "")
                     {
-                        if(drdNgay.SelectedItem.ToString() == "" || drdThang.SelectedItem.ToString() == "" || txtNam.Text == "")
+                        if (drdNgay.SelectedItem.ToString() == "" || drdThang.SelectedItem.ToString() == "" || txtNam.Text == "")
                         {
                             lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
-                            return;
+                            btnLuuthaydoi.Focus();
                         }
                         string kt = txtNam.Text;
                         Convert.ToInt32(kt);
@@ -129,18 +197,23 @@ namespace WebForums.Pages.EditProfile
                         Session["ngaysinh"] = dt;
                         SqlCommand cmd7 = new SqlCommand(lenh, conn);
                         cmd7.ExecuteNonQuery();
-                        Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
+                        Response.Redirect("~/Pages/EditProfile/EditProfile.aspx");
                     }
                 }
                 catch
                 {
 
-                    lblLoi.Text = "Vui lòng nhập đúng năm sinh";
+                    lblLoi.Text = "Vui lòng nhập đúng năm";
+                    btnLuuthaydoi.Focus();
                 }
             }
 
             conn.Close();
-            
+        }
+
+        protected void btnHuybo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
         }
     }
 }

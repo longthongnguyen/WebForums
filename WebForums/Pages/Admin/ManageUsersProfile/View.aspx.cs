@@ -11,6 +11,13 @@ namespace WebForums.Pages.Admin.ManageUsersProfile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id"].ToString() == "True" || Session["quyen"].ToString() != "quantri")
+            {
+                Response.Redirect("~/Home/Home.aspx");
+            }
+            //Thêm title cho web
+            Page.Title = Session["viewten"].ToString() + " | Trang cá nhân";
+
             lblUsername.Text = Session["viewusername"].ToString();
             lblTen.Text = Session["viewten"].ToString();
             lblGioitinh.Text = Session["viewgioitinh"].ToString();
