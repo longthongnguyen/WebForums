@@ -103,24 +103,44 @@ namespace WebForums.Pages.EditProfile
 
 
             //Cập nhật ngày tháng
-            if (drdNgay.ToString() != "" && drdThang.ToString() != "" && txtNam.Text != "")
+            if (txtNam.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "")
             {
-                int ngay = Convert.ToInt32(drdNgay.SelectedItem.Value.ToString());
-                int thang = Convert.ToInt32(drdThang.SelectedItem.Value.ToString());
-                int nam = Convert.ToInt32(txtNam.Text);
-                DateTime dt = new DateTime(nam, thang, ngay);
-                lenh = "update " + tenbang + " set NGAY_SINH'" + dt + "' where USERNAME = '" + Session["id"].ToString() + "'";
-                Session["ngaysinh"] = dt;
-                SqlCommand cmd7 = new SqlCommand(lenh, conn);
-                cmd7.ExecuteNonQuery();
+                Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
+            }
+            else
+            {
+                try
+                {
+                    
+                    if (drdNgay.SelectedItem.ToString() != "" || drdThang.SelectedItem.ToString() != "" || txtNam.Text != "")
+                    {
+                        if(drdNgay.SelectedItem.ToString() == "" || drdThang.SelectedItem.ToString() == "" || txtNam.Text == "")
+                        {
+                            lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
+                            return;
+                        }
+                        string kt = txtNam.Text;
+                        Convert.ToInt32(kt);
+                        string ngay = drdNgay.SelectedItem.Value.ToString();
+                        string thang = drdThang.SelectedItem.Value.ToString();
+                        string nam = txtNam.Text;
+                        string dt = ngay + "/" + thang + "/" + nam;
+                        lenh = "update " + tenbang + " set NGAY_SINH = '" + dt + "' where USERNAME = '" + Session["id"].ToString() + "'";
+                        Session["ngaysinh"] = dt;
+                        SqlCommand cmd7 = new SqlCommand(lenh, conn);
+                        cmd7.ExecuteNonQuery();
+                        Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
+                    }
+                }
+                catch
+                {
+
+                    lblLoi.Text = "Vui lòng nhập đúng năm sinh";
+                }
             }
 
-            
-
             conn.Close();
-
             
-            Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
         }
     }
 }

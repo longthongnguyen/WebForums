@@ -10,6 +10,9 @@
         .auto-style16 {
             text-align: center;
         }
+        .auto-style17 {
+            color: #FF0000;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -29,17 +32,17 @@
             <td class="auto-style14">&nbsp;&nbsp;&nbsp;&nbsp; Ngày sinh</td>
             <td>
                 &nbsp;Ngày
-                <asp:DropDownList ID="drdNgay" runat="server" CssClass="auto-style15">
+                <asp:DropDownList ID="drdNgay" runat="server" CssClass="auto-style15" Width="58px">
                     <asp:ListItem></asp:ListItem>
-                    <asp:ListItem>1</asp:ListItem>
-                    <asp:ListItem>2</asp:ListItem>
-                    <asp:ListItem>3</asp:ListItem>
-                    <asp:ListItem>4</asp:ListItem>
-                    <asp:ListItem>5</asp:ListItem>
-                    <asp:ListItem>6</asp:ListItem>
-                    <asp:ListItem>7</asp:ListItem>
-                    <asp:ListItem>8</asp:ListItem>
-                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem Value="01">1</asp:ListItem>
+                    <asp:ListItem Value="02">2</asp:ListItem>
+                    <asp:ListItem Value="03">3</asp:ListItem>
+                    <asp:ListItem Value="04">4</asp:ListItem>
+                    <asp:ListItem Value="05">5</asp:ListItem>
+                    <asp:ListItem Value="06">6</asp:ListItem>
+                    <asp:ListItem Value="07">7</asp:ListItem>
+                    <asp:ListItem Value="08">8</asp:ListItem>
+                    <asp:ListItem Value="09">9</asp:ListItem>
                     <asp:ListItem>10</asp:ListItem>
                     <asp:ListItem>11</asp:ListItem>
                     <asp:ListItem>12</asp:ListItem>
@@ -66,21 +69,21 @@
 &nbsp; Tháng
                 <asp:DropDownList ID="drdThang" runat="server" CssClass="auto-style15" Width="127px">
                     <asp:ListItem></asp:ListItem>
-                    <asp:ListItem Value="1">Tháng 1</asp:ListItem>
-                    <asp:ListItem Value="2">Tháng 2</asp:ListItem>
-                    <asp:ListItem Value="3">Tháng 3</asp:ListItem>
-                    <asp:ListItem Value="4">Tháng 4</asp:ListItem>
-                    <asp:ListItem Value="5">Tháng 5</asp:ListItem>
-                    <asp:ListItem Value="6">Tháng 6</asp:ListItem>
-                    <asp:ListItem Value="7">Tháng 7</asp:ListItem>
-                    <asp:ListItem Value="8">Tháng 8</asp:ListItem>
-                    <asp:ListItem Value="9">Tháng 9</asp:ListItem>
+                    <asp:ListItem Value="01">Tháng 1</asp:ListItem>
+                    <asp:ListItem Value="02">Tháng 2</asp:ListItem>
+                    <asp:ListItem Value="03">Tháng 3</asp:ListItem>
+                    <asp:ListItem Value="04">Tháng 4</asp:ListItem>
+                    <asp:ListItem Value="05">Tháng 5</asp:ListItem>
+                    <asp:ListItem Value="06">Tháng 6</asp:ListItem>
+                    <asp:ListItem Value="07">Tháng 7</asp:ListItem>
+                    <asp:ListItem Value="08">Tháng 8</asp:ListItem>
+                    <asp:ListItem Value="09">Tháng 9</asp:ListItem>
                     <asp:ListItem Value="10">Tháng 10</asp:ListItem>
                     <asp:ListItem Value="11">Tháng 11</asp:ListItem>
                     <asp:ListItem Value="12">Tháng 12</asp:ListItem>
                 </asp:DropDownList>
 &nbsp;Năm
-                <asp:TextBox ID="txtNam" runat="server" CssClass="auto-style15" Width="89px"></asp:TextBox>
+                <asp:TextBox ID="txtNam" runat="server" CssClass="auto-style15" Width="89px" MaxLength="4"></asp:TextBox>
             </td>
         </tr>
         <tr class="auto-style15">
@@ -119,7 +122,9 @@
         </tr>
         <tr class="auto-style15">
             <td class="auto-style14">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">
+                <asp:Label ID="lblLoi" runat="server" CssClass="auto-style17"></asp:Label>
+            </td>
         </tr>
         <tr class="auto-style15">
             <td class="auto-style14">&nbsp;</td>

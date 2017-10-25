@@ -93,8 +93,8 @@ namespace WebForums.Pages
 
                 try
                 {
-                    DateTime ngaysinh = reader.GetDateTime(4);;
-                    Session["ngaysinh"] = ngaysinh.ToLongDateString();
+                    string ngaysinh = reader.GetString(4);
+                    Session["ngaysinh"] = ngaysinh;
                 }
                 catch { }
 
@@ -127,7 +127,7 @@ namespace WebForums.Pages
             else
             {
                 lblLoi.Text = "Thông tin Tên tài khoản hoặc Mật khẩu không chính xác!";
-                txtTaikhoan.Focus();
+                txtMatkhau.Focus();
             }
         }
 

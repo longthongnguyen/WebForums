@@ -90,20 +90,16 @@ namespace WebForums
 
                 //Danh sách Users
                 conn.Open();
-                lenh = "select USERNAME as 'Tên đăng nhập', TEN as 'Họ và tên', GIOI_TINH as 'Giới tính' from USERS";
-                SqlDataAdapter adapter = new SqlDataAdapter(lenh, conn);
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-                gvDanhsach.DataSource = dataSet;
-                gvDanhsach.DataBind();
+                LoadUsers();
                 conn.Close();
 
                 //Danh sách admin
                 conn.Open();
                 lenh = "select USERNAME as 'Tên đăng nhập', TEN as 'Họ và tên', GIOI_TINH as 'Giới tính' from ADMIN";
                 //lenh = "select USERNAME as 'Tên đăng nhập', TEN as 'Họ và tên', GIOI_TINH as 'Giới tính', NGHE_NGHIEP as 'Nghề nghiệp', EMAIL as 'Email' from ADMIN";
+                SqlDataAdapter adapter = new SqlDataAdapter(lenh, conn);
                 adapter = new SqlDataAdapter(lenh, conn);
-                dataSet = new DataSet();
+                DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
                 gvDanhsachAdmin.DataSource = dataSet;
                 gvDanhsachAdmin.DataBind();
@@ -133,6 +129,96 @@ namespace WebForums
         protected void lkbtnChinhsuathongtin_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/EditProfile/EditProfile.aspx");
+        }
+
+        protected void gvDanhsach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void gvDanhsach_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            conn.Open();
+            string username = gvDanhsach.Rows[e.RowIndex].Cells[2].Text;
+            string lenh = "delete from USERS " + " where USERNAME = '" + username + "'";
+            SqlCommand cmd = new SqlCommand(lenh, conn);
+            cmd.ExecuteNonQuery();
+            LoadUsers();
+        }
+        private void LoadUsers()
+
+        {
+            string lenh = "select USERNAME as 'Tên đăng nhập', TEN as 'Họ và tên', GIOI_TINH as 'Giới tính' from USERS";
+            SqlDataAdapter adapter = new SqlDataAdapter(lenh, conn);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            gvDanhsach.DataSource = dataSet;
+            gvDanhsach.DataBind();
+        }
+
+        protected void gvDanhsach_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            
+            Response.Redirect("~/Pages/EditProfile/EditMember");
+        }
+
+        protected void gvDanhsach_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName == "Edit")
+            {
+
+                conn.Open();
+                string username = e.CommandArgument.ToString();
+                Session["viewusername"] = username;
+                string lenh = "select * from USERS where USERNAME = '" + Session["viewusername"] + "'";
+                SqlCommand cmd = new SqlCommand(lenh, conn);
+                cmd = new SqlCommand(lenh, conn);
+                DbDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                string ten = reader.GetString(1);
+                Session["viewten"] = ten;
+
+                string gioitinh = reader.GetString(2);
+                Session["viewgioitinh"] = gioitinh;
+                try
+                {
+                    string diachi = reader.GetString(3);
+                    Session["viewdiachi"] = diachi;
+                }
+                catch { }
+
+                try
+                {
+                    string ngaysinh = reader.GetString(4);
+                    Session["viewngaysinh"] = ngaysinh;
+                }
+                catch { }
+
+                try
+                {
+                    string sodienthoai = reader.GetString(5);
+                    Session["viewsodienthoai"] = sodienthoai;
+                }
+                catch { }
+
+                try
+                {
+                    string nghenghiep = reader.GetString(6);
+                    Session["viewnghenghiep"] = nghenghiep;
+                }
+                catch { }
+
+                try
+                {
+                    string noilamviec = reader.GetString(7);
+                    Session["viewnoilamviec"] = noilamviec;
+                }
+                catch { }
+
+                string email = reader.GetString(10);
+                Session["viewemail"] = email;
+                Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
+            }
         }
     }
 }

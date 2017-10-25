@@ -170,8 +170,20 @@
                                     <table class="auto-style1">
                                         <tr>
                                             <td class="auto-style75">
-                                                <asp:GridView ID="gvDanhsach" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                <asp:GridView ID="gvDanhsach" runat="server" CellPadding="4" ForeColor="#333333" OnRowDeleting="gvDanhsach_RowDeleting" OnRowCommand="gvDanhsach_RowCommand" Width="100%">
                                                     <AlternatingRowStyle BackColor="White" />
+                                                    <Columns>
+                                                        <asp:TemplateField ShowHeader="False">
+                                                            <EditItemTemplate>
+                                                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
+                                                                &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                                                            </EditItemTemplate>
+                                                            <ItemTemplate>
+                                                                <asp:LinkButton ID="LinkButton1"  runat="server" CausesValidation="False" CommandName="Edit" Text="Xem chi tiết" CommandArgument='<%#Eval("Tên đăng nhập") %>'></asp:LinkButton>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:CommandField DeleteText="Xóa" EditText="Xóa" ShowDeleteButton="True" />
+                                                    </Columns>
                                                     <EditRowStyle BackColor="#2461BF" />
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -186,10 +198,22 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;</td>
+                                            <td>
+                                                <table class="auto-style1">
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;</td>
+                                            <td>
+                                                <table class="auto-style1">
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="auto-style76"><strong>&nbsp;&nbsp;&nbsp;&nbsp; Danh sách quản trị viên</strong></td>
@@ -202,7 +226,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="auto-style75">
-                                                            <asp:GridView ID="gvDanhsachAdmin" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                            <asp:GridView ID="gvDanhsachAdmin" runat="server" CellPadding="4" ForeColor="#333333" Width="100%">
                                                                 <AlternatingRowStyle BackColor="White" />
                                                                 <EditRowStyle BackColor="#2461BF" />
                                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
