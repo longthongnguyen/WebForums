@@ -141,7 +141,7 @@ namespace WebForums
         {
             conn.Open();
             string username = gvDanhsach.Rows[e.RowIndex].Cells[2].Text;
-            string lenh = "delete from USERS " + " where USERNAME = '" + username + "'";
+            string lenh = "delete from LOGIN " + " where USERNAME = '" + username + "'";
             SqlCommand cmd = new SqlCommand(lenh, conn);
             cmd.ExecuteNonQuery();
             LoadUsers();

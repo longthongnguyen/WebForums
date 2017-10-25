@@ -136,18 +136,28 @@ namespace WebForums.Pages.EditProfile
             {
                 if (output == "1")
                 {
-                    if (txtNewpass.Text == txtRenewpass.Text)
+                    if (txtNewpass.Text.Length < 5)
                     {
-                        //if()
-                        lenh = "update LOGIN set PASSWORD = N'" + txtRenewpass.Text + "' where USERNAME = '" + Session["id"].ToString() + "'";
-                        SqlCommand cmd10 = new SqlCommand(lenh, conn);
-                        cmd10.ExecuteNonQuery();
+                        lblLoi.Text = "Mật khẩu phải có ít nhất 5 kí tự";
+                        btnHuybo.Focus();
+                        lblTrangthaicapnhat.Text = "";
+                        flag = 1;
                     }
                     else
                     {
-                        lblLoi.Text = "Mật khẩu xác nhận chưa đúng";
-                        flag = 1;
-                        btnHuybo.Focus();
+                        if (txtNewpass.Text == txtRenewpass.Text)
+                        {
+                            lenh = "update LOGIN set PASSWORD = N'" + txtRenewpass.Text + "' where USERNAME = '" + Session["id"].ToString() + "'";
+                            SqlCommand cmd10 = new SqlCommand(lenh, conn);
+                            cmd10.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            lblLoi.Text = "Mật khẩu xác nhận chưa đúng";
+                            flag = 1;
+                            btnHuybo.Focus();
+                            lblTrangthaicapnhat.Text = "";
+                        }
                     }
                 }
 
@@ -156,6 +166,7 @@ namespace WebForums.Pages.EditProfile
                     lblLoi.Text = "Bạn nhập sai mật khẩu hiện tại";
                     flag = 1;
                     btnHuybo.Focus();
+                    lblTrangthaicapnhat.Text = "";
                 }
             }
 
@@ -236,6 +247,7 @@ namespace WebForums.Pages.EditProfile
                                 lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
                                 lblTrangthaicapnhat.Text = "";
                                 btnLuuthaydoi.Focus();
+                                lblTrangthaicapnhat.Text = "";
                             }
                             else
                             {
