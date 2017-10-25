@@ -47,7 +47,7 @@ namespace WebForums
 
         protected void lkbtnTrangchu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Pages/Home/Home.aspx");
+            Response.Redirect("~/Home/Home.aspx");
         }
 
         protected void lkbtnDangxuat_Click(object sender, EventArgs e)
@@ -61,13 +61,13 @@ namespace WebForums
             if (lkbtnTruycapquyen.Text == "Truy cập trang dành cho quản trị viên" && Session["quyen"] == "quantri")
             {
                 Session["quyentam"] = "quantri";
-                Response.Redirect("~/Pages/Home/Home.aspx");
+                Response.Redirect("~/Home/Home.aspx");
                 lkbtnTruycapquyen.Text = "Truy cập trang dành cho thành viên";
             }
             else
             {
                 Session["quyentam"] = "thanhvien";
-                Response.Redirect("~/Pages/Home/Home.aspx");
+                Response.Redirect("~/Home/Home.aspx");
             }
         }
 
