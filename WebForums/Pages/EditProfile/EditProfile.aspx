@@ -8,7 +8,7 @@
             font-size: x-large;
         }
         .auto-style16 {
-            width: 297px;
+            width: 368px;
         }
         .auto-style22 {
             font-size: xx-large;
@@ -19,7 +19,7 @@
             height: 31px;
         }
         .auto-style18 {
-            width: 297px;
+            width: 368px;
             height: 31px;
         }
         .auto-style19 {
@@ -84,7 +84,7 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -153,7 +153,7 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -173,7 +173,7 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -189,7 +189,7 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -205,7 +205,7 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -221,7 +221,7 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -237,7 +237,7 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -249,6 +249,35 @@
                     </strong></td>
                 <td class="auto-style23">
                     <asp:TextBox ID="txtNoilamviec" runat="server" CssClass="auto-style3"></asp:TextBox>
+                </td>
+            </tr>
+        <tr>
+                <td class="auto-style28">&nbsp;</td>
+                <td class="auto-style16">&nbsp;</td>
+                <td class="auto-style23">
+                    &nbsp;</td>
+            </tr>
+        <tr>
+                <td class="auto-style28">&nbsp;&nbsp;&nbsp;&nbsp; Đổi mật khẩu&nbsp;</td>
+                <td class="auto-style16">&nbsp;</td>
+                <td class="auto-style23">
+                    &nbsp;</td>
+            </tr>
+        <tr>
+                <td class="auto-style28">&nbsp;</td>
+                <td colspan="2"><span class="auto-style25">Mật khẩu hiện tại&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtOldpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px"></asp:TextBox>
+&nbsp; </td>
+            </tr>
+        <tr>
+                <td class="auto-style28">&nbsp;</td>
+                <td class="auto-style25" colspan="2">Mật khẩu mới&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtNewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px"></asp:TextBox>
+                </td>
+            </tr>
+        <tr>
+                <td class="auto-style28">&nbsp;</td>
+                <td class="auto-style25" colspan="2">Nhập lại mật khẩu mới&nbsp;&nbsp;
+                    <asp:TextBox ID="txtRenewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px"></asp:TextBox>
                 </td>
             </tr>
         <tr class="auto-style25">
@@ -269,12 +298,12 @@
             </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr class="auto-style25">
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>
