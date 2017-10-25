@@ -121,7 +121,7 @@ namespace WebForums.Pages.EditProfile
                 tenbang = "USERS";
             }
 
-            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedValue.ToString() == "" && txtOldpass.Text == "" && txtRenewpass.Text == "" && txtRenewpass.Text == "" && txtSodienthoai.Text == "")
+            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedValue.ToString() == "" && txtOldpass.Text == "" && txtNewpass.Text == "" && txtRenewpass.Text == "")
             {
                 Session["trangthaicapnhat"] = "Thông tin không thay đổi";
                 Response.Redirect("~/Pages/EditProfile/EditProfile.aspx");

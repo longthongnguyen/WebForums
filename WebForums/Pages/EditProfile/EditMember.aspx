@@ -232,6 +232,30 @@
             <tr>
                 <td class="auto-style15">&nbsp;</td>
                 <td class="auto-style16">&nbsp;</td>
+                <td class="auto-style23">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Đổi mật khẩu</td>
+                <td class="auto-style16">&nbsp;</td>
+                <td class="auto-style23">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style15">&nbsp;</td>
+                <td colspan="2">Mật khẩu mới&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtNewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style15">&nbsp;</td>
+                <td colspan="2">Nhập lại mật khẩu mới&nbsp;&nbsp;
+                    <asp:TextBox ID="txtRenewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style16">&nbsp;</td>
                 <td class="auto-style27">
                     <asp:Label ID="lblLoi" runat="server" CssClass="auto-style24"></asp:Label>
                 </td>

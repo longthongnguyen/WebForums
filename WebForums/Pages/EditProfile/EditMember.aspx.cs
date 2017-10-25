@@ -100,12 +100,41 @@ namespace WebForums.Pages.EditProfile
         {
             conn.Open();
             string lenh = null;
-            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedItem.ToString() == "")
+            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedItem.ToString() == "" && txtNewpass.Text == "" && txtRenewpass.Text == "")
             {
                 Session["trangthaicapnhat"] = "Thông tin không thay đổi";
                 Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
             }
-            if (txtHovaten.Text != "")
+            int flag = 0;
+            //Đổi mật khẩu
+            if (txtNewpass.Text != "" || txtRenewpass.Text != "")
+            {
+                if (txtNewpass.Text.Length < 5)
+                {
+                    lblLoi.Text = "Mật khẩu phải có ít nhất 5 kí tự";
+                    btnHuybo.Focus();
+                    lblTrangthaicapnhat.Text = "";
+                    flag = 1;
+                }
+                else
+                {
+                    if (txtNewpass.Text == txtRenewpass.Text)
+                    {
+                        lenh = "update LOGIN set PASSWORD = N'" + txtRenewpass.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                        SqlCommand cmd10 = new SqlCommand(lenh, conn);
+                        cmd10.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        lblLoi.Text = "Mật khẩu xác nhận chưa đúng";
+                        flag = 1;
+                        btnHuybo.Focus();
+                        lblTrangthaicapnhat.Text = "";
+                    }
+                }
+            }
+
+            if (txtHovaten.Text != "" && flag == 0)
             {
                 lenh = "update USERS set TEN = N'" + txtHovaten.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                 Session["viewten"] = txtHovaten.Text;
@@ -115,7 +144,7 @@ namespace WebForums.Pages.EditProfile
             }
 
 
-            if (drdGioitinh.SelectedItem.ToString() != "")
+            if (drdGioitinh.SelectedItem.ToString() != "" && flag == 0)
             {
                 lenh = "update USERS set GIOI_TINH = N'" + drdGioitinh.SelectedItem.ToString() + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                 Session["viewgioitinh"] = drdGioitinh.SelectedItem.ToString();
@@ -123,35 +152,35 @@ namespace WebForums.Pages.EditProfile
                 cmd6.ExecuteNonQuery();
             }
 
-            if (txtNghenghiep.Text != "")
+            if (txtNghenghiep.Text != "" && flag == 0)
             {
                 lenh = "update USERS set NGHE_NGHIEP = N'" + txtNghenghiep.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                 Session["viewnghenghiep"] = txtNghenghiep.Text;
                 SqlCommand cmd2 = new SqlCommand(lenh, conn);
                 cmd2.ExecuteNonQuery();
             }
-            if (txtSodienthoai.Text != "")
+            if (txtSodienthoai.Text != "" && flag == 0)
             {
                 lenh = "update USERS set SO_DIEN_THOAI = '" + txtSodienthoai.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                 Session["viewsodienthoai"] = txtSodienthoai.Text;
                 SqlCommand cmd3 = new SqlCommand(lenh, conn);
                 cmd3.ExecuteNonQuery();
             }
-            if (txtDiachi.Text != "")
+            if (txtDiachi.Text != "" && flag == 0)
             {
                 lenh = "update USERS set DIA_CHI = N'" + txtDiachi.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                 Session["viewdiachi"] = txtDiachi.Text;
                 SqlCommand cmd4 = new SqlCommand(lenh, conn);
                 cmd4.ExecuteNonQuery();
             }
-            if (txtNoilamviec.Text != "")
+            if (txtNoilamviec.Text != "" && flag == 0)
             {
                 lenh = "update USERS set NOI_LAM_VIEC = N'" + txtNoilamviec.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                 Session["viewnoilamviec"] = txtNoilamviec.Text;
                 SqlCommand cmd5 = new SqlCommand(lenh, conn);
                 cmd5.ExecuteNonQuery();
             }
-            if (txtEmail.Text != "")
+            if (txtEmail.Text != "" && flag == 0)
             {
                 lenh = "update USERS set EMAIL = N'" + txtEmail.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                 Session["viewemail"] = txtEmail.Text;
@@ -160,7 +189,7 @@ namespace WebForums.Pages.EditProfile
             }
             
             //Cập nhật ngày tháng
-            if (txtNam.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "")
+            if (txtNam.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && flag == 0)
             {
 
                 Session["trangthaicapnhat"] = "Cập nhật thành công";
@@ -168,44 +197,44 @@ namespace WebForums.Pages.EditProfile
             }
             else
             {
-                try
+                if (flag == 0)
                 {
-
-                    if (drdNgay.SelectedItem.ToString() != "" || drdThang.SelectedItem.ToString() != "" || txtNam.Text != "")
+                    try
                     {
-                        int flag = 0;
-                        if (drdNgay.SelectedItem.ToString() == "" || drdThang.SelectedItem.ToString() == "" || txtNam.Text == "")
-                        {
 
-                            lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
-                            lblTrangthaicapnhat.Text = "";
-                            btnLuuthaydoi.Focus();
-                        }
-                        else
+                        if (drdNgay.SelectedItem.ToString() != "" || drdThang.SelectedItem.ToString() != "" || txtNam.Text != "")
                         {
-                            string kt = txtNam.Text;
-                            Convert.ToInt32(kt);
-                            string ngay = drdNgay.SelectedItem.Value.ToString();
-                            string thang = drdThang.SelectedItem.Value.ToString();
-                            string nam = txtNam.Text;
-                            string dt = ngay + "/" + thang + "/" + nam;
-                            lenh = "update USERS set NGAY_SINH = '" + dt + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
-                            if (flag == 1)
-                                lenh = null;
-                            Session["ngaysinh"] = dt;
-                            SqlCommand cmd7 = new SqlCommand(lenh, conn);
-                            cmd7.ExecuteNonQuery();
-                            Session["trangthaicapnhat"] = "Cập nhật thành công";
-                            Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
+                            if (drdNgay.SelectedItem.ToString() == "" || drdThang.SelectedItem.ToString() == "" || txtNam.Text == "")
+                            {
+
+                                lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
+                                lblTrangthaicapnhat.Text = "";
+                                btnLuuthaydoi.Focus();
+                            }
+                            else
+                            {
+                                string kt = txtNam.Text;
+                                Convert.ToInt32(kt);
+                                string ngay = drdNgay.SelectedItem.Value.ToString();
+                                string thang = drdThang.SelectedItem.Value.ToString();
+                                string nam = txtNam.Text;
+                                string dt = ngay + "/" + thang + "/" + nam;
+                                lenh = "update USERS set NGAY_SINH = '" + dt + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                                Session["ngaysinh"] = dt;
+                                SqlCommand cmd7 = new SqlCommand(lenh, conn);
+                                cmd7.ExecuteNonQuery();
+                                Session["trangthaicapnhat"] = "Cập nhật thành công";
+                                Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
+                            }
                         }
                     }
-                }
-                catch
-                {
+                    catch
+                    {
 
-                    lblLoi.Text = "Vui lòng nhập đúng năm";
-                    lblTrangthaicapnhat.Text = "";
-                    btnLuuthaydoi.Focus();
+                        lblLoi.Text = "Vui lòng nhập đúng năm";
+                        lblTrangthaicapnhat.Text = "";
+                        btnLuuthaydoi.Focus();
+                    }
                 }
                 btnLuuthaydoi.Focus();
             }
