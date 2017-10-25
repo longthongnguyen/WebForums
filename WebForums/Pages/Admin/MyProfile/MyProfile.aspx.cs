@@ -164,7 +164,9 @@ namespace WebForums
 
         protected void gvDanhsach_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if(e.CommandName == "Edit")
+
+            Session["bang"] = "USERS";
+            if (e.CommandName == "Edit")
             {
 
                 conn.Open();
@@ -177,7 +179,7 @@ namespace WebForums
                 reader.Read();
                 string ten = reader.GetString(1);
                 Session["viewten"] = ten;
-
+                
                 string gioitinh = reader.GetString(2);
                 Session["viewgioitinh"] = gioitinh;
                 try
@@ -185,40 +187,96 @@ namespace WebForums
                     string diachi = reader.GetString(3);
                     Session["viewdiachi"] = diachi;
                 }
-                catch { }
+                catch { Session["viewdiachi"] = null; }
 
                 try
                 {
                     string ngaysinh = reader.GetString(4);
                     Session["viewngaysinh"] = ngaysinh;
                 }
-                catch { }
+                catch { Session["viewngaysinh"] = null; }
 
                 try
                 {
                     string sodienthoai = reader.GetString(5);
                     Session["viewsodienthoai"] = sodienthoai;
                 }
-                catch { }
+                catch { Session["viewsodienthoai"] = null; }
 
                 try
                 {
                     string nghenghiep = reader.GetString(6);
                     Session["viewnghenghiep"] = nghenghiep;
                 }
-                catch { }
+                catch { Session["viewnghenghiep"] = null; }
 
                 try
                 {
                     string noilamviec = reader.GetString(7);
                     Session["viewnoilamviec"] = noilamviec;
                 }
-                catch { }
+                catch { Session["viewnoilamviec"] = null; }
 
                 string email = reader.GetString(10);
                 Session["viewemail"] = email;
-                Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
+                Response.Redirect("~/Pages/Admin/ManageUsersProfile/View.aspx");
             }
+        }
+
+        protected void gvDanhsachAdmin_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            Session["bang"] = "ADMIN";
+            conn.Open();
+            string username = e.CommandArgument.ToString();
+            Session["viewusername"] = username;
+            string lenh = "select * from ADMIN where USERNAME = '" + Session["viewusername"] + "'";
+            SqlCommand cmd = new SqlCommand(lenh, conn);
+            cmd = new SqlCommand(lenh, conn);
+            DbDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            string ten = reader.GetString(1);
+            Session["viewten"] = ten;
+
+            string gioitinh = reader.GetString(2);
+            Session["viewgioitinh"] = gioitinh;
+            try
+            {
+                string diachi = reader.GetString(3);
+                Session["viewdiachi"] = diachi;
+            }
+            catch { Session["viewdiachi"] = null; }
+
+            try
+            {
+                string ngaysinh = reader.GetString(4);
+                Session["viewngaysinh"] = ngaysinh;
+            }
+            catch { Session["viewngaysinh"] = null; }
+
+            try
+            {
+                string sodienthoai = reader.GetString(5);
+                Session["viewsodienthoai"] = sodienthoai;
+            }
+            catch { Session["viewsodienthoai"] = null; }
+
+            try
+            {
+                string nghenghiep = reader.GetString(6);
+                Session["viewnghenghiep"] = nghenghiep;
+            }
+            catch { Session["viewnghenghiep"] = null; }
+
+            try
+            {
+                string noilamviec = reader.GetString(7);
+                Session["viewnoilamviec"] = noilamviec;
+            }
+            catch { Session["viewnoilamviec"] = null; }
+
+            string email = reader.GetString(10);
+            Session["viewemail"] = email;
+            Response.Redirect("~/Pages/Admin/ManageUsersProfile/View.aspx");
         }
     }
 }

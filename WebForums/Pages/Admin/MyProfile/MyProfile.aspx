@@ -226,8 +226,19 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="auto-style75">
-                                                            <asp:GridView ID="gvDanhsachAdmin" runat="server" CellPadding="4" ForeColor="#333333" Width="100%">
+                                                            <asp:GridView ID="gvDanhsachAdmin" runat="server" CellPadding="4" ForeColor="#333333" Width="100%" OnRowCommand="gvDanhsachAdmin_RowCommand">
                                                                 <AlternatingRowStyle BackColor="White" />
+                                                                <Columns>
+                                                                    <asp:TemplateField ShowHeader="False">
+                                                                        <EditItemTemplate>
+                                                                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
+                                                                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                                                                        </EditItemTemplate>
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Xem chi tiết" CommandArgument='<%#Eval("Tên đăng nhập") %>'></asp:LinkButton>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                </Columns>
                                                                 <EditRowStyle BackColor="#2461BF" />
                                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
