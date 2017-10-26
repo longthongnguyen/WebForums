@@ -110,6 +110,8 @@ namespace WebForums.Pages.EditProfile
 
         protected void btnLuuthaydoi_Click1(object sender, EventArgs e)
         {
+            if(!IsValid)
+            { }
             conn.Open();
             string tenbang, lenh = null;
             if (Session["quyen"].ToString() == "quantri")
@@ -142,22 +144,6 @@ namespace WebForums.Pages.EditProfile
                         btnHuybo.Focus();
                         lblTrangthaicapnhat.Text = "";
                         flag = 1;
-                    }
-                    else
-                    {
-                        if (txtNewpass.Text == txtRenewpass.Text)
-                        {
-                            lenh = "update LOGIN set PASSWORD = N'" + txtRenewpass.Text + "' where USERNAME = '" + Session["id"].ToString() + "'";
-                            SqlCommand cmd10 = new SqlCommand(lenh, conn);
-                            cmd10.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            lblLoi.Text = "Mật khẩu xác nhận chưa đúng";
-                            flag = 1;
-                            btnHuybo.Focus();
-                            lblTrangthaicapnhat.Text = "";
-                        }
                     }
                 }
 
@@ -281,6 +267,16 @@ namespace WebForums.Pages.EditProfile
         protected void btnHuybo_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/Admin/MyProfile/MyProfile.aspx");
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+        
+        }
+
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            
         }
     }
 }

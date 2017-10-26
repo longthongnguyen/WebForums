@@ -74,17 +74,17 @@ background-color: #93B8D2;
                     <td class="auto-style9" rowspan="3" style="width: 100px">&nbsp;</td>
                     <td class="auto-style7">
                         <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:LinkButton ID="lkbtnTrangchu" runat="server" CssClass="auto-style4" OnClick="lkbtnTrangchu_Click">Trang chủ</asp:LinkButton>
+                        <asp:LinkButton ID="lkbtnTrangchu" runat="server" CssClass="auto-style4" OnClick="lkbtnTrangchu_Click" CausesValidation="False">Trang chủ</asp:LinkButton>
                         </strong>
                     </td>
                     <td class="auto-style11" colspan="2">
                         <asp:Label ID="lblXinchao" runat="server" CssClass="auto-style3" Text="Xin chào, "></asp:Label>
-                        <asp:LinkButton ID="lkbtnTrangcanhan" runat="server" CssClass="auto-style3" OnClick="lkbtnTrangcanhan_Click">LinkButton</asp:LinkButton>
-                        <asp:LinkButton ID="lkbtnDangxuat" runat="server" CssClass="auto-style3" OnClick="lkbtnDangxuat_Click">(Đăng xuất)</asp:LinkButton>
+                        <asp:LinkButton ID="lkbtnTrangcanhan" runat="server" CssClass="auto-style3" OnClick="lkbtnTrangcanhan_Click" CausesValidation="False">LinkButton</asp:LinkButton>
+                        <asp:LinkButton ID="lkbtnDangxuat" runat="server" CssClass="auto-style3" OnClick="lkbtnDangxuat_Click" CausesValidation="False">(Đăng xuất)</asp:LinkButton>
                         &nbsp;&nbsp;
                         <br />
                         <br />
-                        <asp:LinkButton ID="lkbtnTruycapquyen" runat="server" CssClass="auto-style3" OnClick="lkbtnTruycapquyen_Click">Truy cập trang dành cho thành viên</asp:LinkButton>
+                        <asp:LinkButton ID="lkbtnTruycapquyen" runat="server" CssClass="auto-style3" OnClick="lkbtnTruycapquyen_Click" CausesValidation="False">Truy cập trang dành cho thành viên</asp:LinkButton>
                     &nbsp;&nbsp;
                         <br />
                         <br />
