@@ -67,6 +67,16 @@
         font-size: large;
         color: #FF0000;
     }
+        .auto-style39 {
+            font-size: x-large;
+            height: 37px;
+            margin-left: 40px;
+        }
+        .auto-style40 {
+            width: 222px;
+            font-size: x-large;
+            height: 37px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -190,9 +200,9 @@
                     <span class="auto-style25">&nbsp; Năm
                     </span>
                     <asp:TextBox ID="txtNam" runat="server" CssClass="auto-style3" MaxLength="4" Width="62px"></asp:TextBox>
-                &nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtNam" CssClass="auto-style24" Display="Dynamic" ErrorMessage="Năm không hợp lệ" MaximumValue="2017" MinimumValue="1880" Type="Integer"></asp:RangeValidator>
+                &nbsp;<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtNam" CssClass="auto-style24" Display="Dynamic" ErrorMessage="Năm không hợp lệ" MaximumValue="2017" MinimumValue="1880" Type="Integer"></asp:RangeValidator>
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                 </td>
             </tr>
         <tr class="auto-style25">
@@ -316,30 +326,37 @@
         <tr>
                 <td class="auto-style28">&nbsp;</td>
                 <td colspan="2"><span class="auto-style25">Mật khẩu hiện tại&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;<asp:TextBox ID="txtOldpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px" MaxLength="30"></asp:TextBox>
-&nbsp;<asp:Label ID="lblLoioldpass" runat="server" CssClass="auto-style24"></asp:Label>
-                    <asp:Label ID="lblLoi" runat="server" CssClass="auto-style24"></asp:Label>
+&nbsp;&nbsp; <asp:Label ID="lblLoioldpass" runat="server" CssClass="auto-style24"></asp:Label>
                 </td>
             </tr>
         <tr>
-                <td class="auto-style28">&nbsp;</td>
-                <td class="auto-style25" colspan="2">Mật khẩu mới&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td class="auto-style40"></td>
+                <td class="auto-style39" colspan="2">Mật khẩu mới&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtNewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px" MaxLength="30"></asp:TextBox>
                 &nbsp;
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtNewpass" CssClass="auto-style38" Display="Dynamic" ErrorMessage="Mật khẩu phải có ít nhất 5 kí tự"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtNewpass" CssClass="auto-style38" Display="Dynamic" ErrorMessage="Mật khẩu phải có ít nhất 5 kí tự" ValidationExpression="^[A-Za-z\d\W]{5,}$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
         <tr>
                 <td class="auto-style28">&nbsp;</td>
                 <td class="auto-style25" colspan="2">Nhập lại mật khẩu mới&nbsp;&nbsp;
                     <asp:TextBox ID="txtRenewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px" MaxLength="30"></asp:TextBox>
-                &nbsp;<asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="txtNewpass" ControlToValidate="txtRenewpass" CssClass="auto-style38" ErrorMessage="Mật khẩu mới không khớp"></asp:CompareValidator>
+                &nbsp; <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="txtNewpass" ControlToValidate="txtRenewpass" CssClass="auto-style38" ErrorMessage="Mật khẩu mới không khớp"></asp:CompareValidator>
                 </td>
             </tr>
         <tr class="auto-style25">
                 <td class="auto-style15">&nbsp;</td>
                 <td class="auto-style16">&nbsp;</td>
                 <td class="auto-style27">
-                    &nbsp;</td>
+                    <asp:Label ID="lblLoi" runat="server" CssClass="auto-style38"></asp:Label>
+                </td>
+            </tr>
+        <tr class="auto-style25">
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style16">&nbsp;</td>
+                <td class="auto-style27">
+                    <asp:Label ID="lblLoingaysinh" runat="server" CssClass="auto-style38"></asp:Label>
+                </td>
             </tr>
         <tr>
                 <td class="auto-style15">&nbsp;</td>

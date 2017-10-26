@@ -292,15 +292,6 @@ namespace WebForums.Pages.EditProfile {
         protected global::System.Web.UI.WebControls.Label lblLoioldpass;
         
         /// <summary>
-        /// lblLoi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoi;
-        
-        /// <summary>
         /// txtNewpass control.
         /// </summary>
         /// <remarks>
@@ -335,6 +326,24 @@ namespace WebForums.Pages.EditProfile {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
+        
+        /// <summary>
+        /// lblLoi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLoi;
+        
+        /// <summary>
+        /// lblLoingaysinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLoingaysinh;
         
         /// <summary>
         /// btnLuuthaydoi control.

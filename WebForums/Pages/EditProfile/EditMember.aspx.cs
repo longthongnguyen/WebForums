@@ -98,6 +98,8 @@ namespace WebForums.Pages.EditProfile
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if(!IsValid)
+            { }
             conn.Open();
             string lenh = null;
             if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedItem.ToString() == "" && txtNewpass.Text == "" && txtRenewpass.Text == "")
@@ -112,7 +114,7 @@ namespace WebForums.Pages.EditProfile
                 if (txtNewpass.Text.Length < 5)
                 {
                     lblLoi.Text = "Mật khẩu phải có ít nhất 5 kí tự";
-                    btnHuybo.Focus();
+                    btnLuuthaydoi.Focus();
                     lblTrangthaicapnhat.Text = "";
                     flag = 1;
                 }
@@ -126,9 +128,9 @@ namespace WebForums.Pages.EditProfile
                     }
                     else
                     {
-                        lblLoi.Text = "Mật khẩu xác nhận chưa đúng";
+                        lblLoi.Text = "Mật khẩu xác nhận không được để trống";
                         flag = 1;
-                        btnHuybo.Focus();
+                        btnLuuthaydoi.Focus();
                         lblTrangthaicapnhat.Text = "";
                     }
                 }

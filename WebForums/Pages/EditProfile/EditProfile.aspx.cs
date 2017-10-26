@@ -111,7 +111,9 @@ namespace WebForums.Pages.EditProfile
         protected void btnLuuthaydoi_Click1(object sender, EventArgs e)
         {
             if(!IsValid)
-            { }
+            {
+                
+            }
             conn.Open();
             string tenbang, lenh = null;
             if (Session["quyen"].ToString() == "quantri")
@@ -138,20 +140,38 @@ namespace WebForums.Pages.EditProfile
             {
                 if (output == "1")
                 {
+                    lblLoioldpass.Text = "";
                     if (txtNewpass.Text.Length < 5)
                     {
-                        lblLoi.Text = "Mật khẩu phải có ít nhất 5 kí tự";
-                        btnHuybo.Focus();
+                        lblLoi.Text = "Vui lòng nhập mật khẩu mới";
+                        btnLuuthaydoi.Focus();
                         lblTrangthaicapnhat.Text = "";
                         flag = 1;
+                    }
+                    else
+                    {
+                        if (txtNewpass.Text == txtRenewpass.Text)
+                        {
+                            lenh = "update LOGIN set PASSWORD = N'" + txtRenewpass.Text + "' where USERNAME = '" + Session["id"].ToString() + "'";
+                            SqlCommand cmd10 = new SqlCommand(lenh, conn);
+                            cmd10.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            lblLoi.Text = "Mật khẩu xác nhận không được để trống";
+                            flag = 1;
+                            btnLuuthaydoi.Focus();
+                            lblTrangthaicapnhat.Text = "";
+                        }
                     }
                 }
 
                 else
                 {
-                    lblLoi.Text = "Bạn nhập sai mật khẩu hiện tại";
+                    lblLoioldpass.Text = "Bạn nhập sai mật khẩu hiện tại";
+                    lblLoi.Text = "";
                     flag = 1;
-                    btnHuybo.Focus();
+                    btnLuuthaydoi.Focus();
                     lblTrangthaicapnhat.Text = "";
                 }
             }
@@ -230,10 +250,9 @@ namespace WebForums.Pages.EditProfile
                         {
                             if (drdNgay.SelectedItem.ToString() == "" || drdThang.SelectedItem.ToString() == "" || txtNam.Text == "")
                             {
-                                lblLoi.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
+                                lblLoingaysinh.Text = "Vui lòng nhập đầy đủ ngày tháng năm";
                                 lblTrangthaicapnhat.Text = "";
                                 btnLuuthaydoi.Focus();
-                                lblTrangthaicapnhat.Text = "";
                             }
                             else
                             {
@@ -255,9 +274,9 @@ namespace WebForums.Pages.EditProfile
                     catch
                     {
 
-                        lblLoi.Text = "Vui lòng nhập đúng năm";
-                        lblTrangthaicapnhat.Text = "";
-                        btnLuuthaydoi.Focus();
+                    //    lblLoi.Text = "Vui lòng nhập đúng năm";
+                    //    lblTrangthaicapnhat.Text = "";
+                    //    btnLuuthaydoi.Focus();
                     }
                 }
             }

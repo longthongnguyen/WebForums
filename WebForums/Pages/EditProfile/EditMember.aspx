@@ -46,6 +46,14 @@
             font-size: x-large;
             color: #0000CC;
         }
+        .auto-style29 {
+            color: #FF0000;
+            font-size: large;
+        }
+    .auto-style38 {
+        font-size: large;
+        color: #FF0000;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -74,6 +82,8 @@
                     </strong></td>
                 <td class="auto-style19">
                     <asp:TextBox ID="txtHovaten" runat="server" CssClass="auto-style3"></asp:TextBox>
+                &nbsp;
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtHovaten" CssClass="auto-style29" ErrorMessage="Tên không hợp lệ" ValidationExpression="[^`1234567890-=\][;/.,!@#$%^&amp;*()_+{}|&lt;&gt;?]*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -139,6 +149,8 @@
                     </asp:DropDownList>
 &nbsp; Năm
                     <asp:TextBox ID="txtNam" runat="server" CssClass="auto-style3" MaxLength="4" Width="62px"></asp:TextBox>
+                &nbsp;
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtNam" CssClass="auto-style29" Display="Dynamic" ErrorMessage="Năm không hợp lệ" MaximumValue="2017" MinimumValue="1880" Type="Integer"></asp:RangeValidator>
                 </td>
             </tr>
             <tr>
@@ -171,6 +183,7 @@
                     </strong></td>
                 <td class="auto-style19">
                     <asp:TextBox ID="txtNghenghiep" runat="server" CssClass="auto-style3"></asp:TextBox>
+                &nbsp; <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtNghenghiep" CssClass="auto-style29" ErrorMessage="Nhập đúng nghề nghiệp" ValidationExpression="[^`=\][/!@#$%^*()_+{}|&lt;&gt;?]*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -185,6 +198,7 @@
                     </strong></td>
                 <td class="auto-style23">
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="auto-style3"></asp:TextBox>
+                &nbsp; <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" CssClass="auto-style29" Display="Dynamic" ErrorMessage="Email không hợp lệ" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -199,6 +213,8 @@
                     </strong></td>
                 <td class="auto-style23">
                     <asp:TextBox ID="txtSodienthoai" runat="server" CssClass="auto-style3"></asp:TextBox>
+                &nbsp;
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtSodienthoai" CssClass="auto-style29" Display="Dynamic" ErrorMessage="Số điện thoại không hợp lệ" ValidationExpression="^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -213,6 +229,7 @@
                     </strong></td>
                 <td class="auto-style23">
                     <asp:TextBox ID="txtDiachi" runat="server" CssClass="auto-style3"></asp:TextBox>
+                &nbsp; <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtDiachi" CssClass="auto-style29" ErrorMessage="Nhập đúng địa chỉ" ValidationExpression="[^`=\][/!@#$%^*_+{}|&lt;&gt;?]*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -227,6 +244,7 @@
                     </strong></td>
                 <td class="auto-style23">
                     <asp:TextBox ID="txtNoilamviec" runat="server" CssClass="auto-style3"></asp:TextBox>
+                &nbsp; <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtNoilamviec" CssClass="auto-style29" ErrorMessage="Nhập đúng nơi làm việc" ValidationExpression="[^`=\][/!@#$%^*_+{}|&lt;&gt;?]*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -245,12 +263,15 @@
                 <td class="auto-style15">&nbsp;</td>
                 <td colspan="2">Mật khẩu mới&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtNewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px"></asp:TextBox>
+                &nbsp;
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtNewpass" CssClass="auto-style38" Display="Dynamic" ErrorMessage="Mật khẩu phải có ít nhất 5 kí tự" ValidationExpression="^[A-Za-z\d\W]{5,}$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style15">&nbsp;</td>
                 <td colspan="2">Nhập lại mật khẩu mới&nbsp;&nbsp;
                     <asp:TextBox ID="txtRenewpass" runat="server" CssClass="auto-style3" TextMode="Password" Width="132px"></asp:TextBox>
+                &nbsp; <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="txtNewpass" ControlToValidate="txtRenewpass" CssClass="auto-style38" ErrorMessage="Mật khẩu mới không khớp"></asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -258,6 +279,13 @@
                 <td class="auto-style16">&nbsp;</td>
                 <td class="auto-style27">
                     <asp:Label ID="lblLoi" runat="server" CssClass="auto-style24"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style16">&nbsp;</td>
+                <td class="auto-style27">
+                    <asp:Label ID="lblLoingaysinh" runat="server" CssClass="auto-style24"></asp:Label>
                 </td>
             </tr>
             <tr>
