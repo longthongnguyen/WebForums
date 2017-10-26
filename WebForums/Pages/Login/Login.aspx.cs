@@ -64,7 +64,7 @@ namespace WebForums.Pages
                 else
                 {
                     Session["quyen"] = "quantri";
-                    Session["quyentam"] = "thanhvien";
+                    Session["quyentam"] = "quantri";
                 }
 
 
