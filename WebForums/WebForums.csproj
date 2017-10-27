@@ -75,6 +75,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DULIEUNGUOIDUNG.mdf" />
+    <Content Include="App_Data\DULIEUNGUOIDUNG_log.ldf">
+      <DependentUpon>DULIEUNGUOIDUNG.mdf</DependentUpon>
+    </Content>
     <Content Include="FormDefault.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
