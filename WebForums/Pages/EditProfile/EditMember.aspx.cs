@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Data.Common;
 using System.Web.UI.HtmlControls;
 using System.Globalization;
+using WebForums.HashSalt;
 
 namespace WebForums.Pages.EditProfile
 {
@@ -122,7 +123,10 @@ namespace WebForums.Pages.EditProfile
                 {
                     if (txtNewpass.Text == txtRenewpass.Text)
                     {
-                        lenh = "update LOGIN set PASSWORD = N'" + txtRenewpass.Text + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                        string salt = Hash.CreateSalt();
+                        Session["viewsalt"] = salt;
+                        string pwhashed = Hash.GenerateSHA256Hash(txtRenewpass.Text, salt);
+                        lenh = "update LOGIN set PASSWORD = N'" + pwhashed + "', SALT = '" + salt + "' where USERNAME = '" + Session["viewusername"].ToString() + "'";
                         SqlCommand cmd10 = new SqlCommand(lenh, conn);
                         cmd10.ExecuteNonQuery();
                     }

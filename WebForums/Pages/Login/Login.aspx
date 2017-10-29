@@ -34,6 +34,11 @@
     </table>
     <table class="auto-style1">
         <tr>
+            <td class="auto-style15">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtTaikhoan" CssClass="auto-style17" ErrorMessage="Tên đăng nhập không hợp lệ" ValidationExpression="[^`~#%^&amp;*{}'&quot;&lt;&gt;?]*"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+        <tr>
             <td class="auto-style15">Tên đăng nhập
                 <asp:TextBox ID="txtTaikhoan" runat="server" CssClass="auto-style3" Width="134px"></asp:TextBox>
             </td>

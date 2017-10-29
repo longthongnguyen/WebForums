@@ -8,6 +8,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Common;
+using System.Security.Cryptography;
+using WebForums.HashSalt;
 
 namespace WebForums.Pages
 {
@@ -43,8 +45,24 @@ namespace WebForums.Pages
                 Response.Cookies["username"].Value = txtTaikhoan.Text;
                 Response.Cookies["password"].Value = txtMatkhau.Text;
             }
+
+            string salt = null;
+            string lenh = "select * from LOGIN where USERNAME = '" + txtTaikhoan.Text + "'";
             conn.Open();
-            string lenh = "select count(*) from LOGIN where USERNAME ='" + txtTaikhoan.Text + "'and PASSWORD ='" + txtMatkhau.Text + "' ";
+            SqlCommand cmd1 = new SqlCommand(lenh, conn);
+            DbDataReader reader1 = cmd1.ExecuteReader();
+            reader1.Read();
+            try
+            {
+                salt = reader1.GetString(2);
+                Session["salt"] = salt;
+            }
+            catch { }
+            conn.Close();
+            string pwhashed = Hash.GenerateSHA256Hash(txtMatkhau.Text, salt);
+            conn.Open();
+            lenh = "select count(*) from LOGIN where USERNAME ='" + txtTaikhoan.Text + "'and PASSWORD ='" + pwhashed + "' ";
+
             SqlCommand cmd = new SqlCommand(lenh, conn);
             string output = cmd.ExecuteScalar().ToString();
             if (output == "1")
@@ -54,9 +72,7 @@ namespace WebForums.Pages
                 cmd = new SqlCommand(lenh, conn);
                 output = (cmd.ExecuteScalar().ToString()).ToString();
 
-
-
-                if (output.ToString() == "1")
+                if (output == "1")
                 {
                     Session["quyen"] = "thanhvien";
                     Session["quyentam"] = "thanhvien";
@@ -66,8 +82,7 @@ namespace WebForums.Pages
                     Session["quyen"] = "quantri";
                     Session["quyentam"] = "quantri";
                 }
-
-
+                
                 //Lưu dữ các thông tin cá nhân của người đăng nhập
                 lenh = "select * from USERS where USERNAME = '" + Session["id"] + "'";
                 if (Session["quyen"] == "quantri")
@@ -121,6 +136,7 @@ namespace WebForums.Pages
 
                 string email = reader.GetString(10);
                 Session["email"] = email;
+                conn.Close();
 
                 Response.Redirect("~/Home/Home.aspx");
             }
@@ -129,6 +145,7 @@ namespace WebForums.Pages
                 lblLoi.Text = "Thông tin Tên tài khoản hoặc Mật khẩu không chính xác!";
                 txtMatkhau.Focus();
             }
+            conn.Close();
         }
 
         protected void chkNhomatkhau_CheckedChanged(object sender, EventArgs e)

@@ -220,6 +220,21 @@ namespace WebForums
 
                 string email = reader.GetString(10);
                 Session["viewemail"] = email;
+                conn.Close();
+
+                conn.Open();
+                lenh = "select * from LOGIN where USERNAME = '" + Session["viewusername"] + "'";
+                SqlCommand cmd1 = new SqlCommand(lenh, conn);
+                DbDataReader reader1 = cmd.ExecuteReader();
+                reader1.Read();
+                try
+                {
+                    string salt = reader1.GetString(2);
+                    Session["viewsalt"] = salt;
+                }
+                catch { }
+                conn.Close();
+
                 Response.Redirect("~/Pages/Admin/ManageUsersProfile/View.aspx");
             }
         }
