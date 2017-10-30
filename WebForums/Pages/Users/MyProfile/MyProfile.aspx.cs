@@ -14,7 +14,7 @@ namespace WebForums.Pages.Users.MyProfile
 {
     public partial class MyProfile : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUWEB"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
             //Nếu là admin mà đang dùng quyền quản trị thì trở về trang cá nhân của admin

@@ -15,7 +15,7 @@ namespace WebForums.Pages
 {
     public partial class test : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUWEB"].ToString());
         string User_Name = string.Empty;
         string User_Color = string.Empty;
         

@@ -16,7 +16,7 @@ namespace WebForums.Pages.EditProfile
 {
     public partial class EditProfile : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUWEB"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
 

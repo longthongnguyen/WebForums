@@ -13,7 +13,7 @@ namespace WebForums
 {
     public partial class MyProfile1 : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUWEB"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
             //Nếu chưa đăng nhập hoặc User mà truy cập thì đưa về trang Login để xử lí lại

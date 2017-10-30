@@ -14,7 +14,7 @@ namespace WebForums
 {
     public partial class FormDefault : System.Web.UI.MasterPage
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUNGUOIDUNG"].ToString());
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUWEB"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Timeout = 60; //Mỗi lần load trang thì gia hạn thời gian cho trạng thái đã đăng nhập
