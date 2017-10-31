@@ -59,7 +59,8 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style15">&nbsp;</td>
+            <td class="auto-style15">
+                &nbsp;</td>
         </tr>
     </table>
     <br />

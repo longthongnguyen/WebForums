@@ -14,5 +14,10 @@ namespace WebForums.Home
             //Thêm title cho web
             Page.Title = "Trang chủ";
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Home/Post/Post.aspx");
+        }
     }
 }

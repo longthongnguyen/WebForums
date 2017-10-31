@@ -81,8 +81,8 @@ background-color: #93B8D2;
                         <asp:Label ID="lblXinchao" runat="server" CssClass="auto-style3" Text="Xin chào, "></asp:Label>
                         <asp:LinkButton ID="lkbtnTrangcanhan" runat="server" CssClass="auto-style3" OnClick="lkbtnTrangcanhan_Click" CausesValidation="False">LinkButton</asp:LinkButton>
                         <asp:LinkButton ID="lkbtnDangxuat" runat="server" CssClass="auto-style3" OnClick="lkbtnDangxuat_Click" CausesValidation="False">(Đăng xuất)</asp:LinkButton>
-                        &nbsp;&nbsp;
-                        <br />
+                        &nbsp;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br />
                         <asp:LinkButton ID="lkbtnTruycapquyen" runat="server" CssClass="auto-style3" OnClick="lkbtnTruycapquyen_Click" CausesValidation="False">Truy cập trang dành cho thành viên</asp:LinkButton>
                     &nbsp;&nbsp;

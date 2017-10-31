@@ -26,7 +26,7 @@ namespace WebForums
             catch
             {
                 lkbtnTrangcanhan.Text = null;
-                lkbtnTruycapquyen.Text = "";
+                lkbtnTruycapquyen.Text = "Đăng ký";
                 lblXinchao.Text = null;
                 lkbtnDangxuat.Text = "Đăng nhập";
             }
@@ -58,16 +58,23 @@ namespace WebForums
 
         protected void lkbtnTruycapquyen_Click(object sender, EventArgs e)
         {
-            if (lkbtnTruycapquyen.Text == "Truy cập trang dành cho quản trị viên" && Session["quyen"] == "quantri")
+            if (lkbtnTruycapquyen.Text != "Đăng ký")
             {
-                Session["quyentam"] = "quantri";
-                Response.Redirect("~/Home/Home.aspx");
-                lkbtnTruycapquyen.Text = "Truy cập trang dành cho thành viên";
+                if (lkbtnTruycapquyen.Text == "Truy cập trang dành cho quản trị viên" && Session["quyen"] == "quantri")
+                {
+                    Session["quyentam"] = "quantri";
+                    Response.Redirect("~/Home/Home.aspx");
+                    lkbtnTruycapquyen.Text = "Truy cập trang dành cho thành viên";
+                }
+                else
+                {
+                    Session["quyentam"] = "thanhvien";
+                    Response.Redirect("~/Home/Home.aspx");
+                }
             }
             else
             {
-                Session["quyentam"] = "thanhvien";
-                Response.Redirect("~/Home/Home.aspx");
+                Response.Redirect("~/Pages/Register/Register.aspx");
             }
         }
 
