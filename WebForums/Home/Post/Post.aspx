@@ -28,6 +28,10 @@
         .auto-style23 {
             color: #FF0000;
         }
+        .auto-style24 {
+            color: #3333CC;
+            font-size: x-large;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -36,7 +40,7 @@
             <td colspan="2">
                 <table class="auto-style1">
                     <tr>
-                        <td>&nbsp;</td>
+                        <td class="auto-style24"><strong>Nhóm 7 - An toàn mạng máy tính</strong></td>
                     </tr>
                     <tr>
                         <td class="auto-style14"></td>

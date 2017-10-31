@@ -59,7 +59,7 @@ namespace WebForums.Post
                     + "', N'" + DateTime.Now.ToLongDateString() + " - " + DateTime.Now.ToLongTimeString() + "')";
                 SqlCommand cmd = new SqlCommand(lenh, conn);
                 cmd.ExecuteNonQuery();
-                Response.Redirect("~/Post/Post.aspx");
+                Response.Redirect("~/Home/Post/Post.aspx");
             }
         }
     }
