@@ -30,6 +30,7 @@ namespace WebForums.Pages.Users.MyProfile
                 Response.Redirect("~/Pages/Login/Login.aspx");
             }
 
+
             //In ra thông tin cá nhân
             conn.Open();
             lblId.Text = Session["id"].ToString();
@@ -42,6 +43,7 @@ namespace WebForums.Pages.Users.MyProfile
             SqlCommand cmd = new SqlCommand(lenh, conn);
             DbDataReader reader = cmd.ExecuteReader();
             reader.Read();
+
 
             lblTen.Text = Session["ten"].ToString();
 
@@ -87,6 +89,19 @@ namespace WebForums.Pages.Users.MyProfile
 
             string email = reader.GetString(10);
             lblEmail.Text = email;
+            conn.Close();
+            //Hiển thị ảnh đại diện
+            conn.Open();
+            try
+            {
+                lenh = "Select ANH_DAI_DIEN from ADMIN where USERNAME = '" + Session["id"].ToString() + "'";
+                cmd = new SqlCommand(lenh, conn);
+                byte[] bytes = (byte[])cmd.ExecuteScalar();
+                string strBase64 = System.Convert.ToBase64String(bytes);
+                imgAnhdaidien.ImageUrl = "data:Image/png;base64," + strBase64;
+            }
+            catch { }
+            conn.Close();
 
 
             //Thêm title cho web

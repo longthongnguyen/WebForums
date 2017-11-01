@@ -87,7 +87,9 @@ namespace WebForums
                 string email = reader.GetString(10);
                 lblEmail.Text = email;
                 conn.Close();
+
                 
+
 
                 //Danh sách Users
                 conn.Open();
@@ -105,24 +107,23 @@ namespace WebForums
                 gvDanhsachAdmin.DataSource = dataSet;
                 gvDanhsachAdmin.DataBind();
                 conn.Close();
+                //Hiển thị ảnh đại diện
+                conn.Open();
+                try
+                {
+                    lenh = "Select ANH_DAI_DIEN from ADMIN where USERNAME = '" + Session["id"].ToString() + "'";
+                    cmd = new SqlCommand(lenh, conn);
+                    byte[] bytes = (byte[])cmd.ExecuteScalar();
+                    string strBase64 = System.Convert.ToBase64String(bytes);
+                    imgAnhdaidien.ImageUrl = "data:Image/png;base64," + strBase64;
+                }
+                catch { }
+                conn.Close();
 
                 //Thêm title cho web
                 Page.Title = "Trang cá nhân | " + username;
+                
 
-                ////Ảnh đại diện mặc đinh
-                //lenh = "select ANH_DAI_DIEN as ' ' from ADMIN where '" + Session["id"];
-                //adapter = new SqlDataAdapter(lenh, conn);
-                //DataTable dataTable = new DataTable();
-                //adapter.Fill(dataTable);
-                //if(dataTable == null)
-                //{
-                //    lblAnhdaidien.Text = "Chưa ảnh đại diện";
-                //}
-                //else
-                //{
-                //    gvAnhdaidien.DataSource = dataTable;
-                //    gvAnhdaidien.DataBind();
-                //}
             }
             catch { }
         }

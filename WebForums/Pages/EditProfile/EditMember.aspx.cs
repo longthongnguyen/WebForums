@@ -11,6 +11,7 @@ using System.Data.Common;
 using System.Web.UI.HtmlControls;
 using System.Globalization;
 using WebForums.HashSalt;
+using System.IO;
 
 namespace WebForums.Pages.EditProfile
 {
@@ -28,6 +29,19 @@ namespace WebForums.Pages.EditProfile
 
             lblUsername.Text = Session["viewusername"].ToString();
             lblTen.Text = Session["viewten"].ToString();
+
+            //Hiển thị ảnh đại diện
+            conn.Open();
+            try
+            {
+                string lenh = "Select ANH_DAI_DIEN from USERS where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                SqlCommand cmd = new SqlCommand(lenh, conn);
+                byte[] bytes = (byte[])cmd.ExecuteScalar();
+                string strBase64 = System.Convert.ToBase64String(bytes);
+                imgAnhdaidien.ImageUrl = "data:Image/png;base64," + strBase64;
+            }
+            catch { }
+            conn.Close();
             try
             {
                 lblTrangthaicapnhat.Text = Session["trangthaicapnhat"].ToString();
@@ -103,7 +117,14 @@ namespace WebForums.Pages.EditProfile
             { }
             conn.Open();
             string lenh = null;
-            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedItem.ToString() == "" && txtNewpass.Text == "" && txtRenewpass.Text == "")
+            //Lấy thông tin từ ảnh được chọn
+            HttpPostedFile postedFile = uploadAndaidien.PostedFile;
+            string filename = Path.GetFileName(postedFile.FileName);
+            string fileExtension = Path.GetExtension(filename);
+            int fileSize = postedFile.ContentLength;
+
+            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedItem.ToString() == "" && txtNewpass.Text == "" && txtRenewpass.Text == "" && fileExtension.ToLower() != ".jpg" && fileExtension.ToLower() != ".gif"
+                && fileExtension.ToLower() != ".png" && fileExtension.ToLower() != ".bmp")
             {
                 Session["trangthaicapnhat"] = "Thông tin không thay đổi";
                 Response.Redirect("~/Pages/EditProfile/EditMember.aspx");
@@ -193,7 +214,38 @@ namespace WebForums.Pages.EditProfile
                 SqlCommand cmd8 = new SqlCommand(lenh, conn);
                 cmd8.ExecuteNonQuery();
             }
-            
+            conn.Close();
+            //Cập nhật ảnh
+            if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".gif"
+                || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".bmp")
+            {
+                Stream stream = postedFile.InputStream;
+                BinaryReader binaryReader = new BinaryReader(stream);
+                Byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
+
+                lenh = "update USERS set ANH_DAI_DIEN = @ImageData, SIZE_ANH = @Size where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                SqlCommand cmd = new SqlCommand(lenh, conn);
+
+                SqlParameter paramSize = new SqlParameter()
+                {
+                    ParameterName = "@Size",
+                    Value = fileSize
+                };
+                cmd.Parameters.Add(paramSize);
+
+                SqlParameter paramImageData = new SqlParameter()
+                {
+                    ParameterName = "@ImageData",
+                    Value = bytes
+                };
+                cmd.Parameters.Add(paramImageData);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            conn.Open();
+
             //Cập nhật ngày tháng
             if (txtNam.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && flag == 0)
             {

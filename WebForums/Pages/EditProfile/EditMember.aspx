@@ -76,6 +76,16 @@
                     </strong></td>
             </tr>
             <tr>
+                <td class="auto-style25" colspan="3">&nbsp;&nbsp;&nbsp; <span class="auto-style25">&nbsp;&nbsp; Ảnh đại diện</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Image ID="imgAnhdaidien" runat="server" ImageUrl="~/Images/default-avatar.jpg" Width="25%" />
+                    <asp:FileUpload ID="uploadAndaidien" runat="server" ToolTip="Thay đổi ảnh đại diện" />
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style22" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
                 <td class="auto-style17">&nbsp;&nbsp;&nbsp;&nbsp; Họ và tên</td>
                 <td class="auto-style18"><strong>
                     <asp:Label ID="lblTen" runat="server" Text="Label"></asp:Label>

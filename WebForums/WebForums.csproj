@@ -105,6 +105,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\ConvertImage.cs" />
     <Compile Include="FormDefault.Master.cs">
       <DependentUpon>FormDefault.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,7 +116,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HashSalt\Hash.cs" />
+    <Compile Include="Class\Hash.cs" />
     <Compile Include="Pages\Admin\ManageUsersProfile\View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -11,6 +11,7 @@ using System.Data.Common;
 using System.Web.UI.HtmlControls;
 using System.Globalization;
 using WebForums.HashSalt;
+using System.IO;
 
 namespace WebForums.Pages.EditProfile
 {
@@ -19,6 +20,27 @@ namespace WebForums.Pages.EditProfile
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUWEB"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Hiển thị ảnh đại diện
+            conn.Open();
+            try
+            {
+                string bang = null;
+                if(Session["quyen"].ToString() == "quantri")
+                {
+                    bang = "ADMIN";
+                }
+                else
+                {
+                    bang = "USERS";
+                }
+                string lenh = "Select ANH_DAI_DIEN from " + bang + " where USERNAME = '" + Session["id"].ToString() + "'";
+                SqlCommand cmd = new SqlCommand(lenh, conn);
+                byte[] bytes = (byte[])cmd.ExecuteScalar();
+                string strBase64 = System.Convert.ToBase64String(bytes);
+                imgAnhdaidien.ImageUrl = "data:Image/png;base64," + strBase64;
+            }
+            catch { }
+            conn.Close();
 
             if (Session["id"].ToString() == "True")
             {
@@ -125,8 +147,14 @@ namespace WebForums.Pages.EditProfile
             {
                 tenbang = "USERS";
             }
+            //Lấy thông tin từ ảnh được chọn
+            HttpPostedFile postedFile = uploadAndaidien.PostedFile;
+            string filename = Path.GetFileName(postedFile.FileName);
+            string fileExtension = Path.GetExtension(filename);
+            int fileSize = postedFile.ContentLength;
 
-            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedValue.ToString() == "" && txtOldpass.Text == "" && txtNewpass.Text == "" && txtRenewpass.Text == "")
+            if (txtDiachi.Text == "" && txtEmail.Text == "" && txtHovaten.Text == "" && txtNam.Text == "" && txtNghenghiep.Text == "" && txtNoilamviec.Text == "" && txtSodienthoai.Text == "" && txtDiachi.Text == "" && drdNgay.SelectedItem.ToString() == "" && drdThang.SelectedItem.ToString() == "" && txtNam.Text == "" && drdGioitinh.SelectedItem.ToString() == "" && txtNewpass.Text == "" && txtRenewpass.Text == "" && fileExtension.ToLower() != ".jpg" && fileExtension.ToLower() != ".gif"
+                && fileExtension.ToLower() != ".png" && fileExtension.ToLower() != ".bmp")
             {
                 Session["trangthaicapnhat"] = "Thông tin không thay đổi";
                 Response.Redirect("~/Pages/EditProfile/EditProfile.aspx");
@@ -237,8 +265,38 @@ namespace WebForums.Pages.EditProfile
                 SqlCommand cmd8 = new SqlCommand(lenh, conn);
                 cmd8.ExecuteNonQuery();
             }
+            conn.Close();
 
+            //Cập nhật ảnh
+            conn.Open();
+            if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".gif"
+                || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".bmp")
+            {
+                Stream stream = postedFile.InputStream;
+                BinaryReader binaryReader = new BinaryReader(stream);
+                Byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
 
+                lenh = "update " + tenbang + " set ANH_DAI_DIEN = @ImageData, SIZE_ANH = @Size where USERNAME = '" + Session["id"].ToString() + "'";
+                cmd = new SqlCommand(lenh, conn);
+
+                SqlParameter paramSize = new SqlParameter()
+                {
+                    ParameterName = "@Size",
+                    Value = fileSize
+                };
+                cmd.Parameters.Add(paramSize);
+
+                SqlParameter paramImageData = new SqlParameter()
+                {
+                    ParameterName = "@ImageData",
+                    Value = bytes
+                };
+                cmd.Parameters.Add(paramImageData);
+
+                cmd.ExecuteNonQuery();
+            }
+            conn.Close();
+            conn.Open();
             //Cập nhật ngày tháng
             if (flag == 0 && txtNam.Text == "" && drdNgay.SelectedValue.ToString() == "" && drdThang.SelectedValue.ToString() == "")
             {

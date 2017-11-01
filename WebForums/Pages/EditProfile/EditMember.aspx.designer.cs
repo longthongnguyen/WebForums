@@ -31,6 +31,24 @@ namespace WebForums.Pages.EditProfile {
         protected global::System.Web.UI.WebControls.Label lblTrangthaicapnhat;
         
         /// <summary>
+        /// imgAnhdaidien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgAnhdaidien;
+        
+        /// <summary>
+        /// uploadAndaidien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uploadAndaidien;
+        
+        /// <summary>
         /// lblTen control.
         /// </summary>
         /// <remarks>

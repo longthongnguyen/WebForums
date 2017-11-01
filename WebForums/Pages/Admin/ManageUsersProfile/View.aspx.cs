@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +11,7 @@ namespace WebForums.Pages.Admin.ManageUsersProfile
 {
     public partial class View : System.Web.UI.Page
     {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DULIEUWEB"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["trangthaicapnhat"] = "";
@@ -22,6 +25,29 @@ namespace WebForums.Pages.Admin.ManageUsersProfile
             lblUsername.Text = Session["viewusername"].ToString();
             lblTen.Text = Session["viewten"].ToString();
             lblGioitinh.Text = Session["viewgioitinh"].ToString();
+            //Hiển thị ảnh đại diện
+            conn.Open();
+            try
+            {
+                string lenh = "Select ANH_DAI_DIEN from USERS where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                SqlCommand cmd = new SqlCommand(lenh, conn);
+                byte[] bytes = (byte[])cmd.ExecuteScalar();
+                string strBase64 = System.Convert.ToBase64String(bytes);
+                imgAnhdaidien.ImageUrl = "data:Image/png;base64," + strBase64;
+            }
+            catch
+            {
+                try
+                {
+                    string lenh = "Select ANH_DAI_DIEN from ADMIN where USERNAME = '" + Session["viewusername"].ToString() + "'";
+                    SqlCommand cmd = new SqlCommand(lenh, conn);
+                    byte[] bytes = (byte[])cmd.ExecuteScalar();
+                    string strBase64 = System.Convert.ToBase64String(bytes);
+                    imgAnhdaidien.ImageUrl = "data:Image/png;base64," + strBase64;
+                }
+                catch { }
+            }
+            conn.Close();
 
             try
             {
