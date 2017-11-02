@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FormDefault.Master" AutoEventWireup="true" CodeBehind="Post.aspx.cs" Inherits="WebForums.Post.Post" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FormDefault.Master" AutoEventWireup="true" ValidateRequest = "false" CodeBehind="Post.aspx.cs" Inherits="WebForums.Post.Post" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../Scripts/jquery-3.2.1.js"></script>
     <style type="text/css">
         .auto-style14 {
             height: 24px;
@@ -63,7 +64,7 @@
                             </tr>
                             <tr>
                                 <td aria-multiline="True" aria-multiselectable="False" class="auto-style22" style="background-color: #FFFFFF">
-                                    <asp:Label ID="lblBinhluan" runat="server" EnableTheming="False" Text='<%# Eval("BINH_LUAN") %>' Width="70%"></asp:Label>
+                                    <asp:Label ID="lblBinhluan" runat="server" EnableTheming="False" Text='<%# Eval("BINH_LUAN") %>' Width="70%" Font-Size="X-Large"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -106,8 +107,7 @@
         <tr>
             <td class="auto-style17">&nbsp;</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtBinhluan" CssClass="auto-style23" Display="Dynamic" ErrorMessage="Bình luận phải có ít nhất 5 kí tự" ValidationExpression=".{5,}$"></asp:RegularExpressionValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBinhluan" CssClass="auto-style23" Display="Dynamic" ErrorMessage="Bình luận phải có ít nhất 5 kí tự"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBinhluan" CssClass="auto-style23" Display="Dynamic" ErrorMessage="Bình luận không được để trống"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
