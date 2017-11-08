@@ -80,6 +80,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DULIEUWEB.mdf" />
+    <Content Include="App_Data\DULIEUWEB_log.ldf" />
     <Content Include="FormDefault.Master" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
@@ -98,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Images\2.jpg" />
     <Content Include="Pages\Admin\ManageUsersProfile\View.aspx" />
     <Content Include="Pages\Admin\MyProfile\MyProfile.aspx" />
     <Content Include="Pages\EditProfile\EditMember.aspx" />
